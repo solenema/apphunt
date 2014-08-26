@@ -10,6 +10,13 @@
 #warning "This project uses features only available in iOS SDK 3.0 and later."
 #endif
 
+#define APP_NAME @"name"
+#define APP_TAGLINE @"tagline"
+#define APP_APPSTOREIDENTIFIER @"appstore_identifier"
+#define APP_ICONURL @"icon_url"
+#define APP_DAY @"day"
+
+
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>

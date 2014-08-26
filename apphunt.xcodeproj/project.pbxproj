@@ -7,6 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		251CEBB219A2362400B64076 /* AppsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 251CEBB119A2362400B64076 /* AppsTableViewController.m */; };
+		259B8AC719A0147A001C6016 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 259B8AC619A0147A001C6016 /* App.m */; };
+		259B8ACB19A0337C001C6016 /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259B8AC919A0337C001C6016 /* DownloadViewController.m */; };
+		259B8ACC19A0337C001C6016 /* DownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 259B8ACA19A0337C001C6016 /* DownloadViewController.xib */; };
+		25B9BDB819ABE5B400A673F0 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B9BDB619ABE5B400A673F0 /* MainTableViewController.m */; };
+		25B9BDB919ABE5B400A673F0 /* MainTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25B9BDB719ABE5B400A673F0 /* MainTableViewController.xib */; };
+		25BD523E19AAB3A50053B54F /* AppHuntRailsAFNClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BD523D19AAB3A50053B54F /* AppHuntRailsAFNClient.m */; };
+		25F017A619A3CCD100C023A5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F017A519A3CCD100C023A5 /* StoreKit.framework */; };
+		25F017CF19A3DBCC00C023A5 /* DINNextRoundedLTPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017AC19A3DBCC00C023A5 /* DINNextRoundedLTPro-Bold.otf */; };
+		25F017D019A3DBCC00C023A5 /* DINNextRoundedLTPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017AD19A3DBCC00C023A5 /* DINNextRoundedLTPro-Regular.otf */; };
+		25F017D119A3DBCC00C023A5 /* Dosis-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017AF19A3DBCC00C023A5 /* Dosis-Bold.otf */; };
+		25F017D219A3DBCC00C023A5 /* Dosis-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017B019A3DBCC00C023A5 /* Dosis-ExtraBold.otf */; };
+		25F017D319A3DBCC00C023A5 /* Dosis-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017B119A3DBCC00C023A5 /* Dosis-ExtraLight.otf */; };
+		25F017D419A3DBCC00C023A5 /* Dosis-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017B219A3DBCC00C023A5 /* Dosis-Light.otf */; };
+		25F017D519A3DBCC00C023A5 /* Dosis-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017B319A3DBCC00C023A5 /* Dosis-Medium.otf */; };
+		25F017D619A3DBCC00C023A5 /* Dosis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017B419A3DBCC00C023A5 /* Dosis-Regular.otf */; };
+		25F017D719A3DBCC00C023A5 /* Dosis-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017B519A3DBCC00C023A5 /* Dosis-SemiBold.otf */; };
+		25F017D819A3DBCC00C023A5 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 25F017B619A3DBCC00C023A5 /* SIL Open Font License.txt */; };
+		25F017D919A3DBCC00C023A5 /* BrownStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017B819A3DBCC00C023A5 /* BrownStd-Bold.otf */; };
+		25F017DA19A3DBCC00C023A5 /* BrownStd-Bold.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017B919A3DBCC00C023A5 /* BrownStd-Bold.pdf */; };
+		25F017DB19A3DBCC00C023A5 /* BrownStd-BoldAlt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017BA19A3DBCC00C023A5 /* BrownStd-BoldAlt.otf */; };
+		25F017DC19A3DBCC00C023A5 /* BrownStd-BoldAlt.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017BB19A3DBCC00C023A5 /* BrownStd-BoldAlt.pdf */; };
+		25F017DD19A3DBCC00C023A5 /* BrownStd-ReclinBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017BC19A3DBCC00C023A5 /* BrownStd-ReclinBold.otf */; };
+		25F017DE19A3DBCC00C023A5 /* BrownStd-ReclinBold.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017BD19A3DBCC00C023A5 /* BrownStd-ReclinBold.pdf */; };
+		25F017DF19A3DBCC00C023A5 /* BrownStd-ReclinBoldAlt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017BE19A3DBCC00C023A5 /* BrownStd-ReclinBoldAlt.otf */; };
+		25F017E019A3DBCC00C023A5 /* BrownStd-ReclinBoldAlt.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017BF19A3DBCC00C023A5 /* BrownStd-ReclinBoldAlt.pdf */; };
+		25F017E119A3DBCC00C023A5 /* BrownStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017C119A3DBCC00C023A5 /* BrownStd-Light.otf */; };
+		25F017E219A3DBCC00C023A5 /* BrownStd-Light.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017C219A3DBCC00C023A5 /* BrownStd-Light.pdf */; };
+		25F017E319A3DBCC00C023A5 /* BrownStd-ReclinLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017C319A3DBCC00C023A5 /* BrownStd-ReclinLight.otf */; };
+		25F017E419A3DBCC00C023A5 /* BrownStd-ReclinLight.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017C419A3DBCC00C023A5 /* BrownStd-ReclinLight.pdf */; };
+		25F017E519A3DBCC00C023A5 /* BrownStd-ReclinRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017C619A3DBCC00C023A5 /* BrownStd-ReclinRegular.otf */; };
+		25F017E619A3DBCC00C023A5 /* BrownStd-ReclinRegular.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017C719A3DBCC00C023A5 /* BrownStd-ReclinRegular.pdf */; };
+		25F017E719A3DBCC00C023A5 /* BrownStd-ReclinRegularAlt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017C819A3DBCC00C023A5 /* BrownStd-ReclinRegularAlt.otf */; };
+		25F017E819A3DBCC00C023A5 /* BrownStd-ReclinRegularAlt.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017C919A3DBCC00C023A5 /* BrownStd-ReclinRegularAlt.pdf */; };
+		25F017E919A3DBCC00C023A5 /* BrownStd-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017CA19A3DBCC00C023A5 /* BrownStd-Regular.otf */; };
+		25F017EA19A3DBCC00C023A5 /* BrownStd-Regular.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017CB19A3DBCC00C023A5 /* BrownStd-Regular.pdf */; };
+		25F017EB19A3DBCC00C023A5 /* BrownStd-RegularAlt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017CC19A3DBCC00C023A5 /* BrownStd-RegularAlt.otf */; };
+		25F017EC19A3DBCC00C023A5 /* BrownStd-RegularAlt.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017CD19A3DBCC00C023A5 /* BrownStd-RegularAlt.pdf */; };
+		25F017ED19A3DBCC00C023A5 /* Lineto EULA.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 25F017CE19A3DBCC00C023A5 /* Lineto EULA.pdf */; };
+		25F410CC199FF6790090F9DD /* AppTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F410CA199FF6790090F9DD /* AppTableViewCell.m */; };
+		25F410CD199FF6790090F9DD /* AppTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25F410CB199FF6790090F9DD /* AppTableViewCell.xib */; };
 		25FC2FF0199D37920091BF49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25FC2FEF199D37920091BF49 /* Foundation.framework */; };
 		25FC2FF2199D37920091BF49 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25FC2FF1199D37920091BF49 /* CoreGraphics.framework */; };
 		25FC2FF4199D37920091BF49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25FC2FF3199D37920091BF49 /* UIKit.framework */; };
@@ -19,6 +60,9 @@
 		25FC300B199D37920091BF49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25FC2FF3199D37920091BF49 /* UIKit.framework */; };
 		25FC3013199D37930091BF49 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25FC3011199D37930091BF49 /* InfoPlist.strings */; };
 		25FC3015199D37930091BF49 /* apphuntTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC3014199D37930091BF49 /* apphuntTests.m */; };
+		25FC3027199D5EBC0091BF49 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC3025199D5EBC0091BF49 /* MainViewController.m */; };
+		25FC3028199D5EBC0091BF49 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25FC3026199D5EBC0091BF49 /* MainViewController.xib */; };
+		8B6AAFBBE5F5492097B51B50 /* libPods-apphunt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0CAFD91E224B78AAE4D3FA /* libPods-apphunt.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +76,53 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		251CEBB019A2362400B64076 /* AppsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsTableViewController.h; sourceTree = "<group>"; };
+		251CEBB119A2362400B64076 /* AppsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsTableViewController.m; sourceTree = "<group>"; };
+		259B8AC519A0147A001C6016 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
+		259B8AC619A0147A001C6016 /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = App.m; sourceTree = "<group>"; };
+		259B8AC819A0337C001C6016 /* DownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
+		259B8AC919A0337C001C6016 /* DownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
+		259B8ACA19A0337C001C6016 /* DownloadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DownloadViewController.xib; sourceTree = "<group>"; };
+		25B9BDB519ABE5B400A673F0 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
+		25B9BDB619ABE5B400A673F0 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
+		25B9BDB719ABE5B400A673F0 /* MainTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewController.xib; sourceTree = "<group>"; };
+		25BD523C19AAB3A50053B54F /* AppHuntRailsAFNClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppHuntRailsAFNClient.h; sourceTree = "<group>"; };
+		25BD523D19AAB3A50053B54F /* AppHuntRailsAFNClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppHuntRailsAFNClient.m; sourceTree = "<group>"; };
+		25F017A519A3CCD100C023A5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		25F017AC19A3DBCC00C023A5 /* DINNextRoundedLTPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNextRoundedLTPro-Bold.otf"; sourceTree = "<group>"; };
+		25F017AD19A3DBCC00C023A5 /* DINNextRoundedLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNextRoundedLTPro-Regular.otf"; sourceTree = "<group>"; };
+		25F017AF19A3DBCC00C023A5 /* Dosis-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Bold.otf"; sourceTree = "<group>"; };
+		25F017B019A3DBCC00C023A5 /* Dosis-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraBold.otf"; sourceTree = "<group>"; };
+		25F017B119A3DBCC00C023A5 /* Dosis-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraLight.otf"; sourceTree = "<group>"; };
+		25F017B219A3DBCC00C023A5 /* Dosis-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Light.otf"; sourceTree = "<group>"; };
+		25F017B319A3DBCC00C023A5 /* Dosis-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Medium.otf"; sourceTree = "<group>"; };
+		25F017B419A3DBCC00C023A5 /* Dosis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.otf"; sourceTree = "<group>"; };
+		25F017B519A3DBCC00C023A5 /* Dosis-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.otf"; sourceTree = "<group>"; };
+		25F017B619A3DBCC00C023A5 /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
+		25F017B819A3DBCC00C023A5 /* BrownStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrownStd-Bold.otf"; sourceTree = "<group>"; };
+		25F017B919A3DBCC00C023A5 /* BrownStd-Bold.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "BrownStd-Bold.pdf"; sourceTree = "<group>"; };
+		25F017BA19A3DBCC00C023A5 /* BrownStd-BoldAlt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrownStd-BoldAlt.otf"; sourceTree = "<group>"; };
+		25F017BB19A3DBCC00C023A5 /* BrownStd-BoldAlt.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "BrownStd-BoldAlt.pdf"; sourceTree = "<group>"; };
+		25F017BC19A3DBCC00C023A5 /* BrownStd-ReclinBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrownStd-ReclinBold.otf"; sourceTree = "<group>"; };
+		25F017BD19A3DBCC00C023A5 /* BrownStd-ReclinBold.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "BrownStd-ReclinBold.pdf"; sourceTree = "<group>"; };
+		25F017BE19A3DBCC00C023A5 /* BrownStd-ReclinBoldAlt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrownStd-ReclinBoldAlt.otf"; sourceTree = "<group>"; };
+		25F017BF19A3DBCC00C023A5 /* BrownStd-ReclinBoldAlt.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "BrownStd-ReclinBoldAlt.pdf"; sourceTree = "<group>"; };
+		25F017C119A3DBCC00C023A5 /* BrownStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrownStd-Light.otf"; sourceTree = "<group>"; };
+		25F017C219A3DBCC00C023A5 /* BrownStd-Light.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "BrownStd-Light.pdf"; sourceTree = "<group>"; };
+		25F017C319A3DBCC00C023A5 /* BrownStd-ReclinLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrownStd-ReclinLight.otf"; sourceTree = "<group>"; };
+		25F017C419A3DBCC00C023A5 /* BrownStd-ReclinLight.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "BrownStd-ReclinLight.pdf"; sourceTree = "<group>"; };
+		25F017C619A3DBCC00C023A5 /* BrownStd-ReclinRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrownStd-ReclinRegular.otf"; sourceTree = "<group>"; };
+		25F017C719A3DBCC00C023A5 /* BrownStd-ReclinRegular.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "BrownStd-ReclinRegular.pdf"; sourceTree = "<group>"; };
+		25F017C819A3DBCC00C023A5 /* BrownStd-ReclinRegularAlt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrownStd-ReclinRegularAlt.otf"; sourceTree = "<group>"; };
+		25F017C919A3DBCC00C023A5 /* BrownStd-ReclinRegularAlt.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "BrownStd-ReclinRegularAlt.pdf"; sourceTree = "<group>"; };
+		25F017CA19A3DBCC00C023A5 /* BrownStd-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrownStd-Regular.otf"; sourceTree = "<group>"; };
+		25F017CB19A3DBCC00C023A5 /* BrownStd-Regular.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "BrownStd-Regular.pdf"; sourceTree = "<group>"; };
+		25F017CC19A3DBCC00C023A5 /* BrownStd-RegularAlt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrownStd-RegularAlt.otf"; sourceTree = "<group>"; };
+		25F017CD19A3DBCC00C023A5 /* BrownStd-RegularAlt.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "BrownStd-RegularAlt.pdf"; sourceTree = "<group>"; };
+		25F017CE19A3DBCC00C023A5 /* Lineto EULA.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Lineto EULA.pdf"; sourceTree = "<group>"; };
+		25F410C9199FF6790090F9DD /* AppTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTableViewCell.h; sourceTree = "<group>"; };
+		25F410CA199FF6790090F9DD /* AppTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppTableViewCell.m; sourceTree = "<group>"; };
+		25F410CB199FF6790090F9DD /* AppTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppTableViewCell.xib; sourceTree = "<group>"; };
 		25FC2FEC199D37920091BF49 /* apphunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = apphunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25FC2FEF199D37920091BF49 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		25FC2FF1199D37920091BF49 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,6 +139,11 @@
 		25FC3010199D37920091BF49 /* apphuntTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "apphuntTests-Info.plist"; sourceTree = "<group>"; };
 		25FC3012199D37930091BF49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		25FC3014199D37930091BF49 /* apphuntTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = apphuntTests.m; sourceTree = "<group>"; };
+		25FC3024199D5EBC0091BF49 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		25FC3025199D5EBC0091BF49 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		25FC3026199D5EBC0091BF49 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		492D356135E74DD3B29C3763 /* Pods-apphunt.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apphunt.xcconfig"; path = "Pods/Pods-apphunt.xcconfig"; sourceTree = "<group>"; };
+		8C0CAFD91E224B78AAE4D3FA /* libPods-apphunt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-apphunt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +151,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25F017A619A3CCD100C023A5 /* StoreKit.framework in Frameworks */,
 				25FC2FF2199D37920091BF49 /* CoreGraphics.framework in Frameworks */,
 				25FC2FF4199D37920091BF49 /* UIKit.framework in Frameworks */,
 				25FC2FF0199D37920091BF49 /* Foundation.framework in Frameworks */,
+				8B6AAFBBE5F5492097B51B50 /* libPods-apphunt.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +172,103 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25F017A719A3D29D00C023A5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				25F410CB199FF6790090F9DD /* AppTableViewCell.xib */,
+				25FC3026199D5EBC0091BF49 /* MainViewController.xib */,
+				259B8ACA19A0337C001C6016 /* DownloadViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		25F017A919A3DBBE00C023A5 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				25F017AA19A3DBCC00C023A5 /* Fonts */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		25F017AA19A3DBCC00C023A5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				25F017AB19A3DBCC00C023A5 /* DIN */,
+				25F017AE19A3DBCC00C023A5 /* dosis */,
+				25F017B719A3DBCC00C023A5 /* LL Brown-Bold OTStd */,
+				25F017C019A3DBCC00C023A5 /* LL Brown-Light OTStd */,
+				25F017C519A3DBCC00C023A5 /* LL Brown-Regular OTStd */,
+			);
+			name = Fonts;
+			path = assets/Fonts;
+			sourceTree = "<group>";
+		};
+		25F017AB19A3DBCC00C023A5 /* DIN */ = {
+			isa = PBXGroup;
+			children = (
+				25F017AC19A3DBCC00C023A5 /* DINNextRoundedLTPro-Bold.otf */,
+				25F017AD19A3DBCC00C023A5 /* DINNextRoundedLTPro-Regular.otf */,
+			);
+			path = DIN;
+			sourceTree = "<group>";
+		};
+		25F017AE19A3DBCC00C023A5 /* dosis */ = {
+			isa = PBXGroup;
+			children = (
+				25F017AF19A3DBCC00C023A5 /* Dosis-Bold.otf */,
+				25F017B019A3DBCC00C023A5 /* Dosis-ExtraBold.otf */,
+				25F017B119A3DBCC00C023A5 /* Dosis-ExtraLight.otf */,
+				25F017B219A3DBCC00C023A5 /* Dosis-Light.otf */,
+				25F017B319A3DBCC00C023A5 /* Dosis-Medium.otf */,
+				25F017B419A3DBCC00C023A5 /* Dosis-Regular.otf */,
+				25F017B519A3DBCC00C023A5 /* Dosis-SemiBold.otf */,
+				25F017B619A3DBCC00C023A5 /* SIL Open Font License.txt */,
+			);
+			path = dosis;
+			sourceTree = "<group>";
+		};
+		25F017B719A3DBCC00C023A5 /* LL Brown-Bold OTStd */ = {
+			isa = PBXGroup;
+			children = (
+				25F017B819A3DBCC00C023A5 /* BrownStd-Bold.otf */,
+				25F017B919A3DBCC00C023A5 /* BrownStd-Bold.pdf */,
+				25F017BA19A3DBCC00C023A5 /* BrownStd-BoldAlt.otf */,
+				25F017BB19A3DBCC00C023A5 /* BrownStd-BoldAlt.pdf */,
+				25F017BC19A3DBCC00C023A5 /* BrownStd-ReclinBold.otf */,
+				25F017BD19A3DBCC00C023A5 /* BrownStd-ReclinBold.pdf */,
+				25F017BE19A3DBCC00C023A5 /* BrownStd-ReclinBoldAlt.otf */,
+				25F017BF19A3DBCC00C023A5 /* BrownStd-ReclinBoldAlt.pdf */,
+			);
+			path = "LL Brown-Bold OTStd";
+			sourceTree = "<group>";
+		};
+		25F017C019A3DBCC00C023A5 /* LL Brown-Light OTStd */ = {
+			isa = PBXGroup;
+			children = (
+				25F017C119A3DBCC00C023A5 /* BrownStd-Light.otf */,
+				25F017C219A3DBCC00C023A5 /* BrownStd-Light.pdf */,
+				25F017C319A3DBCC00C023A5 /* BrownStd-ReclinLight.otf */,
+				25F017C419A3DBCC00C023A5 /* BrownStd-ReclinLight.pdf */,
+			);
+			path = "LL Brown-Light OTStd";
+			sourceTree = "<group>";
+		};
+		25F017C519A3DBCC00C023A5 /* LL Brown-Regular OTStd */ = {
+			isa = PBXGroup;
+			children = (
+				25F017C619A3DBCC00C023A5 /* BrownStd-ReclinRegular.otf */,
+				25F017C719A3DBCC00C023A5 /* BrownStd-ReclinRegular.pdf */,
+				25F017C819A3DBCC00C023A5 /* BrownStd-ReclinRegularAlt.otf */,
+				25F017C919A3DBCC00C023A5 /* BrownStd-ReclinRegularAlt.pdf */,
+				25F017CA19A3DBCC00C023A5 /* BrownStd-Regular.otf */,
+				25F017CB19A3DBCC00C023A5 /* BrownStd-Regular.pdf */,
+				25F017CC19A3DBCC00C023A5 /* BrownStd-RegularAlt.otf */,
+				25F017CD19A3DBCC00C023A5 /* BrownStd-RegularAlt.pdf */,
+				25F017CE19A3DBCC00C023A5 /* Lineto EULA.pdf */,
+			);
+			path = "LL Brown-Regular OTStd";
+			sourceTree = "<group>";
+		};
 		25FC2FE3199D37920091BF49 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +276,7 @@
 				25FC300E199D37920091BF49 /* apphuntTests */,
 				25FC2FEE199D37920091BF49 /* Frameworks */,
 				25FC2FED199D37920091BF49 /* Products */,
+				492D356135E74DD3B29C3763 /* Pods-apphunt.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,10 +292,12 @@
 		25FC2FEE199D37920091BF49 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25F017A519A3CCD100C023A5 /* StoreKit.framework */,
 				25FC2FEF199D37920091BF49 /* Foundation.framework */,
 				25FC2FF1199D37920091BF49 /* CoreGraphics.framework */,
 				25FC2FF3199D37920091BF49 /* UIKit.framework */,
 				25FC3008199D37920091BF49 /* XCTest.framework */,
+				8C0CAFD91E224B78AAE4D3FA /* libPods-apphunt.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -107,10 +305,16 @@
 		25FC2FF5199D37920091BF49 /* apphunt */ = {
 			isa = PBXGroup;
 			children = (
+				25F017A919A3DBBE00C023A5 /* Assets */,
+				25F017A719A3D29D00C023A5 /* Views */,
+				25FC3020199D37BC0091BF49 /* Models */,
+				25FC301E199D37AA0091BF49 /* Controllers */,
 				25FC2FFE199D37920091BF49 /* AppDelegate.h */,
 				25FC2FFF199D37920091BF49 /* AppDelegate.m */,
 				25FC3001199D37920091BF49 /* Images.xcassets */,
 				25FC2FF6199D37920091BF49 /* Supporting Files */,
+				25BD523C19AAB3A50053B54F /* AppHuntRailsAFNClient.h */,
+				25BD523D19AAB3A50053B54F /* AppHuntRailsAFNClient.m */,
 			);
 			path = apphunt;
 			sourceTree = "<group>";
@@ -144,6 +348,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		25FC301E199D37AA0091BF49 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				25FC3024199D5EBC0091BF49 /* MainViewController.h */,
+				25FC3025199D5EBC0091BF49 /* MainViewController.m */,
+				25F410C9199FF6790090F9DD /* AppTableViewCell.h */,
+				25F410CA199FF6790090F9DD /* AppTableViewCell.m */,
+				259B8AC819A0337C001C6016 /* DownloadViewController.h */,
+				259B8AC919A0337C001C6016 /* DownloadViewController.m */,
+				251CEBB019A2362400B64076 /* AppsTableViewController.h */,
+				251CEBB119A2362400B64076 /* AppsTableViewController.m */,
+				25B9BDB519ABE5B400A673F0 /* MainTableViewController.h */,
+				25B9BDB619ABE5B400A673F0 /* MainTableViewController.m */,
+				25B9BDB719ABE5B400A673F0 /* MainTableViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		25FC3020199D37BC0091BF49 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				259B8AC519A0147A001C6016 /* App.h */,
+				259B8AC619A0147A001C6016 /* App.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,9 +382,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25FC3018199D37930091BF49 /* Build configuration list for PBXNativeTarget "apphunt" */;
 			buildPhases = (
+				B23563F655814B6B959152F2 /* Check Pods Manifest.lock */,
 				25FC2FE8199D37920091BF49 /* Sources */,
 				25FC2FE9199D37920091BF49 /* Frameworks */,
 				25FC2FEA199D37920091BF49 /* Resources */,
+				FF9162B95C9A43F5AA8FB08F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,7 +452,42 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25F017DF19A3DBCC00C023A5 /* BrownStd-ReclinBoldAlt.otf in Resources */,
+				25F017EB19A3DBCC00C023A5 /* BrownStd-RegularAlt.otf in Resources */,
+				25F017D319A3DBCC00C023A5 /* Dosis-ExtraLight.otf in Resources */,
+				25F017E419A3DBCC00C023A5 /* BrownStd-ReclinLight.pdf in Resources */,
+				25F017DB19A3DBCC00C023A5 /* BrownStd-BoldAlt.otf in Resources */,
+				25F017E719A3DBCC00C023A5 /* BrownStd-ReclinRegularAlt.otf in Resources */,
+				25F017EC19A3DBCC00C023A5 /* BrownStd-RegularAlt.pdf in Resources */,
+				259B8ACC19A0337C001C6016 /* DownloadViewController.xib in Resources */,
 				25FC2FFA199D37920091BF49 /* InfoPlist.strings in Resources */,
+				25F017DA19A3DBCC00C023A5 /* BrownStd-Bold.pdf in Resources */,
+				25F017D019A3DBCC00C023A5 /* DINNextRoundedLTPro-Regular.otf in Resources */,
+				25F410CD199FF6790090F9DD /* AppTableViewCell.xib in Resources */,
+				25F017E619A3DBCC00C023A5 /* BrownStd-ReclinRegular.pdf in Resources */,
+				25F017E319A3DBCC00C023A5 /* BrownStd-ReclinLight.otf in Resources */,
+				25F017D219A3DBCC00C023A5 /* Dosis-ExtraBold.otf in Resources */,
+				25F017DD19A3DBCC00C023A5 /* BrownStd-ReclinBold.otf in Resources */,
+				25B9BDB919ABE5B400A673F0 /* MainTableViewController.xib in Resources */,
+				25F017E819A3DBCC00C023A5 /* BrownStd-ReclinRegularAlt.pdf in Resources */,
+				25F017D819A3DBCC00C023A5 /* SIL Open Font License.txt in Resources */,
+				25F017D419A3DBCC00C023A5 /* Dosis-Light.otf in Resources */,
+				25F017D719A3DBCC00C023A5 /* Dosis-SemiBold.otf in Resources */,
+				25F017E219A3DBCC00C023A5 /* BrownStd-Light.pdf in Resources */,
+				25F017D919A3DBCC00C023A5 /* BrownStd-Bold.otf in Resources */,
+				25F017E019A3DBCC00C023A5 /* BrownStd-ReclinBoldAlt.pdf in Resources */,
+				25F017D519A3DBCC00C023A5 /* Dosis-Medium.otf in Resources */,
+				25F017CF19A3DBCC00C023A5 /* DINNextRoundedLTPro-Bold.otf in Resources */,
+				25F017E519A3DBCC00C023A5 /* BrownStd-ReclinRegular.otf in Resources */,
+				25F017E119A3DBCC00C023A5 /* BrownStd-Light.otf in Resources */,
+				25F017D119A3DBCC00C023A5 /* Dosis-Bold.otf in Resources */,
+				25F017EA19A3DBCC00C023A5 /* BrownStd-Regular.pdf in Resources */,
+				25F017ED19A3DBCC00C023A5 /* Lineto EULA.pdf in Resources */,
+				25F017DE19A3DBCC00C023A5 /* BrownStd-ReclinBold.pdf in Resources */,
+				25F017D619A3DBCC00C023A5 /* Dosis-Regular.otf in Resources */,
+				25F017DC19A3DBCC00C023A5 /* BrownStd-BoldAlt.pdf in Resources */,
+				25F017E919A3DBCC00C023A5 /* BrownStd-Regular.otf in Resources */,
+				25FC3028199D5EBC0091BF49 /* MainViewController.xib in Resources */,
 				25FC3002199D37920091BF49 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,13 +502,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B23563F655814B6B959152F2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FF9162B95C9A43F5AA8FB08F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-apphunt-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		25FC2FE8199D37920091BF49 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				251CEBB219A2362400B64076 /* AppsTableViewController.m in Sources */,
+				25BD523E19AAB3A50053B54F /* AppHuntRailsAFNClient.m in Sources */,
+				259B8AC719A0147A001C6016 /* App.m in Sources */,
 				25FC3000199D37920091BF49 /* AppDelegate.m in Sources */,
+				259B8ACB19A0337C001C6016 /* DownloadViewController.m in Sources */,
+				25F410CC199FF6790090F9DD /* AppTableViewCell.m in Sources */,
+				25FC3027199D5EBC0091BF49 /* MainViewController.m in Sources */,
 				25FC2FFC199D37920091BF49 /* main.m in Sources */,
+				25B9BDB819ABE5B400A673F0 /* MainTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +662,7 @@
 		};
 		25FC3019199D37930091BF49 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 492D356135E74DD3B29C3763 /* Pods-apphunt.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -367,6 +676,7 @@
 		};
 		25FC301A199D37930091BF49 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 492D356135E74DD3B29C3763 /* Pods-apphunt.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -437,6 +747,7 @@
 				25FC301A199D37930091BF49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25FC301B199D37930091BF49 /* Build configuration list for PBXNativeTarget "apphuntTests" */ = {
 			isa = XCConfigurationList;
@@ -445,6 +756,7 @@
 				25FC301D199D37930091BF49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
