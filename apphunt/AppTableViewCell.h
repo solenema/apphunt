@@ -10,8 +10,9 @@
 #import "DownloadViewController.h"
 
 @interface AppTableViewCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet UILabel *taglineLabel;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *baselineLabel;
 @property (strong, nonatomic) IBOutlet UILabel *countVotesLabel;
 
 @end

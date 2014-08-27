@@ -9,14 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "App.h"
 #import "AppTableViewCell.h"
+#import <StoreKit/StoreKit.h>
 
-@protocol OpenAppStoreDelegate <NSObject>
-- (void)openAppStoreWithIdentifier:(NSString*)identifier;
-@end
 
-@interface MainTableViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface MainTableViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,SKStoreProductViewControllerDelegate>
 
-@property (weak,nonatomic) id <OpenAppStoreDelegate> delegate;
 @property (strong, nonatomic) NSString *day;
 @property (strong, nonatomic) NSMutableArray *datesSectionTitles;
 @property (strong, nonatomic) NSDictionary *appsDictionary;

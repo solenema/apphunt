@@ -19,13 +19,14 @@
 - (void)loadView {
     UIView *contentView = [[UIView alloc] initWithFrame:self.contentFrame];
     contentView.autoresizesSubviews = YES;
-     //   contentView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    //   contentView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     contentView.backgroundColor = [UIColor blackColor];
     [self setView:contentView];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [self.tableView setAutoresizesSubviews:YES];
     //    [self.tableView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 50, 0, 100);
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -59,14 +60,14 @@
         [tableView registerNib:[UINib  nibWithNibName:@"AppTableViewCell" bundle:nil]  forCellReuseIdentifier:cellIdentifier];
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     }
-        UIButton *downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        downloadButton.tag = indexPath.row;
-    	[downloadButton addTarget:self
-                           action:@selector(openAppStore:)
-                 forControlEvents:UIControlEventTouchDown];
-    	[downloadButton  setImage:[UIImage imageNamed:@"appstore-icon"] forState:UIControlStateNormal];
-    	downloadButton.frame = CGRectMake(250.0f, 35.0f, 50.0f, 50.0f);
-    	[cell addSubview:downloadButton];
+    UIButton *downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    downloadButton.tag = indexPath.row;
+    [downloadButton addTarget:self
+                       action:@selector(openAppStore:)
+             forControlEvents:UIControlEventTouchDown];
+    [downloadButton  setImage:[UIImage imageNamed:@"appstore-icon"] forState:UIControlStateNormal];
+    downloadButton.frame = CGRectMake(15.0f, 15.0f, 50.0f, 50.0f);
+    [cell addSubview:downloadButton];
     return cell;
 }
 
@@ -80,9 +81,10 @@
     NSDictionary *appDictionary = [self.appsArray objectAtIndex:indexPath.row];
     App *app = [self AppObjectFromDictionary:appDictionary];
     cell.nameLabel.text = app.name;
-    cell.baselineLabel.text = app.tagline;
+    cell.taglineLabel.text = app.tagline;
     cell.countVotesLabel.text = [NSString stringWithFormat:@"%D votes", app.votesCount];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
 }
 
 
@@ -96,7 +98,7 @@
     NSLog(@"%li, %@", (long)downloadButtonClicked.tag, app.name);
     NSString *identifier = @"818540868";
     [self.delegate openAppStoreWithIdentifier:identifier];
-    }
+}
 
 
 -(void)makeAppsRequests{
@@ -132,12 +134,12 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSString *now = [dateFormatter stringFromDate:date];
     NSMutableArray *datesArray = [[NSMutableArray alloc] initWithObjects: now, nil];
-  
-    for (int i = 1; i <= 5; i++) {
-    NSString *dateString;
-    NSDate *newDate = [NSDate dateWithTimeInterval:-24*3600*i sinceDate:date];
-	dateString = [dateFormatter stringFromDate:newDate];
-    [datesArray addObject:dateString];
+    
+    for (int i = 1; i <= 35; i++) {
+        NSString *dateString;
+        NSDate *newDate = [NSDate dateWithTimeInterval:-24*3600*i sinceDate:date];
+        dateString = [dateFormatter stringFromDate:newDate];
+        [datesArray addObject:dateString];
     }
     
     NSLog(@"%@", datesArray);

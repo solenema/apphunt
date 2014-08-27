@@ -26,9 +26,8 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>BrownStd-Bold.otf</string>
-		<string>BrownStd-Light.otf</string>
-		<string>BrownStd-Regular.otf</string>
+		<string>ProximaNovaA-Bold.otf</string>
+		<string>ProximaNova-Regular.otf</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

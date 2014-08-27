@@ -14,7 +14,7 @@
 
 
 
-@interface MainViewController : UIViewController <UIScrollViewDelegate,SKStoreProductViewControllerDelegate,SKStoreProductViewControllerDelegate,OpenAppStoreDelegate>
+@interface MainViewController : UIViewController <UIScrollViewDelegate,SKStoreProductViewControllerDelegate,SKStoreProductViewControllerDelegate>
 
 @property (strong, nonatomic) UIScrollView  *horizontalScrollView;
 @property (strong, nonatomic) NSMutableArray *dataArray;
