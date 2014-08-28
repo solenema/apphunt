@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DownloadViewController.h"
+
 
 @interface AppTableViewCell : UITableViewCell
 

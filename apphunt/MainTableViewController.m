@@ -8,6 +8,7 @@
 
 #import "MainTableViewController.h"
 #import "AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
 #import "Colors.h"
 
 @interface MainTableViewController ()
@@ -94,7 +95,12 @@
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     [style setLineBreakMode:NSLineBreakByWordWrapping];
     [style setLineSpacing:0];
+    if(![app.tagline isKindOfClass:[NSNull class]]) {
     [attrStringTagline addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, [app.tagline length])];
+    }
+    else {
+    [attrStringTagline addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, 0)];
+    }
     cell.taglineLabel.attributedText = attrStringTagline;
     cell.countVotesLabel.text = [NSString stringWithFormat:@"%d votes", app.votesCount];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -105,13 +111,15 @@
     imgView.layer.cornerRadius = 10.0f;
     imgView.clipsToBounds = YES;
     imgView.tag = [app.appstoreIdentifier integerValue];
-    NSData * iconData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: app.iconPath]];
-    imgView.image = [UIImage imageWithData:iconData];
-    
+    if(![app.iconPath isKindOfClass:[NSNull class]]) {
+    //NSData * iconData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: app.iconPath]];
+        
+    [imgView setImageWithURL:[NSURL URLWithString:app.iconPath]];
     [imgView setUserInteractionEnabled:YES];
     UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openAppStore:)];
     [singleTap setNumberOfTapsRequired:1];
     [imgView addGestureRecognizer:singleTap];
+    }
     [cell addSubview:imgView];
 
 }
@@ -157,6 +165,7 @@
 }
 
 
+
 #pragma mark - SKStoreProductViewController Delegate
 //we need to conform the MTViewController class to the SKStoreProductViewControllerDelegate protocol by implementing the productViewControllerDidFinish: method.
 
@@ -169,7 +178,7 @@
 
 -(void)makeAppsRequests{
     
-    NSString *stringUrl = [NSString stringWithFormat:@"http://localhost:3000/v1/apps?from_day=%@&to_day=%@",self.datesSectionTitles.lastObject,self.datesSectionTitles.firstObject];
+    NSString *stringUrl = [NSString stringWithFormat:@"http://apphuntdev.herokuapp.com/v1/apps?from_day=%@&to_day=%@",self.datesSectionTitles.lastObject,self.datesSectionTitles.firstObject];
     NSLog(@"%@", stringUrl);
     NSURL *url = [NSURL URLWithString:stringUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];

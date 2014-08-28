@@ -8,11 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2513E02319AE685300E4F354 /* downloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2513E02219AE685300E4F354 /* downloadButton.m */; };
-		251CEBB219A2362400B64076 /* AppsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 251CEBB119A2362400B64076 /* AppsTableViewController.m */; };
 		257D8FA419AD867B0032CB8B /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 257D8FA319AD867B0032CB8B /* ProximaNova-Regular.otf */; };
 		257D8FA619AD86850032CB8B /* ProximaNovaA-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 257D8FA519AD86850032CB8B /* ProximaNovaA-Bold.otf */; };
 		259B8AC719A0147A001C6016 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 259B8AC619A0147A001C6016 /* App.m */; };
-		259B8ACB19A0337C001C6016 /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259B8AC919A0337C001C6016 /* DownloadViewController.m */; };
 		259B8ACC19A0337C001C6016 /* DownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 259B8ACA19A0337C001C6016 /* DownloadViewController.xib */; };
 		25B8A2C219AD10EB001F3B0B /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B8A2C119AD10EB001F3B0B /* Colors.m */; };
 		25B8A2CA19AD13C9001F3B0B /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B8A2C719AD13C9001F3B0B /* HexColor.m */; };
@@ -36,7 +34,6 @@
 		25FC300B199D37920091BF49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25FC2FF3199D37920091BF49 /* UIKit.framework */; };
 		25FC3013199D37930091BF49 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25FC3011199D37930091BF49 /* InfoPlist.strings */; };
 		25FC3015199D37930091BF49 /* apphuntTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC3014199D37930091BF49 /* apphuntTests.m */; };
-		25FC3027199D5EBC0091BF49 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC3025199D5EBC0091BF49 /* MainViewController.m */; };
 		25FC3028199D5EBC0091BF49 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25FC3026199D5EBC0091BF49 /* MainViewController.xib */; };
 		8B6AAFBBE5F5492097B51B50 /* libPods-apphunt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0CAFD91E224B78AAE4D3FA /* libPods-apphunt.a */; };
 /* End PBXBuildFile section */
@@ -54,14 +51,10 @@
 /* Begin PBXFileReference section */
 		2513E02119AE685300E4F354 /* downloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = downloadButton.h; sourceTree = "<group>"; };
 		2513E02219AE685300E4F354 /* downloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = downloadButton.m; sourceTree = "<group>"; };
-		251CEBB019A2362400B64076 /* AppsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsTableViewController.h; sourceTree = "<group>"; };
-		251CEBB119A2362400B64076 /* AppsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsTableViewController.m; sourceTree = "<group>"; };
 		257D8FA319AD867B0032CB8B /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
 		257D8FA519AD86850032CB8B /* ProximaNovaA-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNovaA-Bold.otf"; sourceTree = "<group>"; };
 		259B8AC519A0147A001C6016 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
 		259B8AC619A0147A001C6016 /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = App.m; sourceTree = "<group>"; };
-		259B8AC819A0337C001C6016 /* DownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
-		259B8AC919A0337C001C6016 /* DownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
 		259B8ACA19A0337C001C6016 /* DownloadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DownloadViewController.xib; sourceTree = "<group>"; };
 		25B8A2C019AD10EB001F3B0B /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		25B8A2C119AD10EB001F3B0B /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
@@ -94,8 +87,6 @@
 		25FC3010199D37920091BF49 /* apphuntTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "apphuntTests-Info.plist"; sourceTree = "<group>"; };
 		25FC3012199D37930091BF49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		25FC3014199D37930091BF49 /* apphuntTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = apphuntTests.m; sourceTree = "<group>"; };
-		25FC3024199D5EBC0091BF49 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		25FC3025199D5EBC0091BF49 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		25FC3026199D5EBC0091BF49 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		492D356135E74DD3B29C3763 /* Pods-apphunt.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apphunt.xcconfig"; path = "Pods/Pods-apphunt.xcconfig"; sourceTree = "<group>"; };
 		8C0CAFD91E224B78AAE4D3FA /* libPods-apphunt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-apphunt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,18 +267,12 @@
 		25FC301E199D37AA0091BF49 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				25FC3024199D5EBC0091BF49 /* MainViewController.h */,
-				25FC3025199D5EBC0091BF49 /* MainViewController.m */,
 				25F410C9199FF6790090F9DD /* AppTableViewCell.h */,
 				25F410CA199FF6790090F9DD /* AppTableViewCell.m */,
-				259B8AC819A0337C001C6016 /* DownloadViewController.h */,
-				259B8AC919A0337C001C6016 /* DownloadViewController.m */,
-				251CEBB019A2362400B64076 /* AppsTableViewController.h */,
-				251CEBB119A2362400B64076 /* AppsTableViewController.m */,
 				25B9BDB519ABE5B400A673F0 /* MainTableViewController.h */,
+				25B9BDB619ABE5B400A673F0 /* MainTableViewController.m */,
 				2513E02119AE685300E4F354 /* downloadButton.h */,
 				2513E02219AE685300E4F354 /* downloadButton.m */,
-				25B9BDB619ABE5B400A673F0 /* MainTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -439,16 +424,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				251CEBB219A2362400B64076 /* AppsTableViewController.m in Sources */,
 				25BD523E19AAB3A50053B54F /* AppHuntRailsAFNClient.m in Sources */,
 				259B8AC719A0147A001C6016 /* App.m in Sources */,
 				2513E02319AE685300E4F354 /* downloadButton.m in Sources */,
 				25FC3000199D37920091BF49 /* AppDelegate.m in Sources */,
 				25B8A2CA19AD13C9001F3B0B /* HexColor.m in Sources */,
-				259B8ACB19A0337C001C6016 /* DownloadViewController.m in Sources */,
 				25F410CC199FF6790090F9DD /* AppTableViewCell.m in Sources */,
 				25B8A2C219AD10EB001F3B0B /* Colors.m in Sources */,
-				25FC3027199D5EBC0091BF49 /* MainViewController.m in Sources */,
 				25FC2FFC199D37920091BF49 /* main.m in Sources */,
 				25B9BDB819ABE5B400A673F0 /* MainTableViewController.m in Sources */,
 			);
