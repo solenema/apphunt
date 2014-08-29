@@ -25,6 +25,8 @@
     self.contentView.backgroundColor = [UIColor whiteColor];
     self.taglineLabel.numberOfLines = 2;
     
+    self.iconButton = [[UIImageView alloc]initWithFrame:CGRectMake(15, 15, 50, 50)];
+    [self addSubview:self.iconButton];
     
 
 

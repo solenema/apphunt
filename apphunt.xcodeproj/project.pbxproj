@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2513E02319AE685300E4F354 /* downloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2513E02219AE685300E4F354 /* downloadButton.m */; };
+		2573429019AFBF3A00354407 /* ApplicationsURLs.m in Sources */ = {isa = PBXBuildFile; fileRef = 2573428F19AFBF3A00354407 /* ApplicationsURLs.m */; };
 		257D8FA419AD867B0032CB8B /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 257D8FA319AD867B0032CB8B /* ProximaNova-Regular.otf */; };
 		257D8FA619AD86850032CB8B /* ProximaNovaA-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 257D8FA519AD86850032CB8B /* ProximaNovaA-Bold.otf */; };
 		259B8AC719A0147A001C6016 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 259B8AC619A0147A001C6016 /* App.m */; };
@@ -51,6 +52,9 @@
 /* Begin PBXFileReference section */
 		2513E02119AE685300E4F354 /* downloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = downloadButton.h; sourceTree = "<group>"; };
 		2513E02219AE685300E4F354 /* downloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = downloadButton.m; sourceTree = "<group>"; };
+		2573428D19AFBE9A00354407 /* host.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = host.h; sourceTree = "<group>"; };
+		2573428E19AFBF3A00354407 /* ApplicationsURLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationsURLs.h; sourceTree = "<group>"; };
+		2573428F19AFBF3A00354407 /* ApplicationsURLs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationsURLs.m; sourceTree = "<group>"; };
 		257D8FA319AD867B0032CB8B /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
 		257D8FA519AD86850032CB8B /* ProximaNovaA-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNovaA-Bold.otf"; sourceTree = "<group>"; };
 		259B8AC519A0147A001C6016 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
@@ -118,11 +122,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2573428C19AFBE7B00354407 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				2573428D19AFBE9A00354407 /* host.h */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
 		25B8A2BF19AD0FE6001F3B0B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				25B8A2C019AD10EB001F3B0B /* Colors.h */,
 				25B8A2C119AD10EB001F3B0B /* Colors.m */,
+				2573428E19AFBF3A00354407 /* ApplicationsURLs.h */,
+				2573428F19AFBF3A00354407 /* ApplicationsURLs.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -130,6 +144,7 @@
 		25B8A2C319AD1345001F3B0B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2573428C19AFBE7B00354407 /* Config */,
 				25B8A2C419AD13C9001F3B0B /* HexColors */,
 			);
 			name = Resources;
@@ -428,6 +443,7 @@
 				259B8AC719A0147A001C6016 /* App.m in Sources */,
 				2513E02319AE685300E4F354 /* downloadButton.m in Sources */,
 				25FC3000199D37920091BF49 /* AppDelegate.m in Sources */,
+				2573429019AFBF3A00354407 /* ApplicationsURLs.m in Sources */,
 				25B8A2CA19AD13C9001F3B0B /* HexColor.m in Sources */,
 				25F410CC199FF6790090F9DD /* AppTableViewCell.m in Sources */,
 				25B8A2C219AD10EB001F3B0B /* Colors.m in Sources */,

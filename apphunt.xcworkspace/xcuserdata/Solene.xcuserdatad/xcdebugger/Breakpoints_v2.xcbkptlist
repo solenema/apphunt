@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "apphunt/MainTableViewController.m"
-            timestampString = "430943310.74424"
+            timestampString = "431018042.23741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "-makeAppsRequests"
             landmarkType = "5">
             <Locations>

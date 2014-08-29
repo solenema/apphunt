@@ -9,7 +9,10 @@
 #import "MainTableViewController.h"
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
+#import "UIButton+AFNetworking.h"
 #import "Colors.h"
+#import "ApplicationsURLs.h"
+#import "downloadButton.h"
 
 @interface MainTableViewController ()
 
@@ -34,9 +37,9 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.datesSectionTitles = [self datesArray];
-    [self.tableView reloadData];
     [self.view addSubview:self.tableView];
     [self makeAppsRequests];
+   // [self.tableView reloadData];
 }
 
 
@@ -59,9 +62,7 @@
     headerLabel.frame = CGRectMake(20,0,200,20);
     headerLabel.text =  [self convertDateToSectionFormat:[self.datesSectionTitles objectAtIndex:section]];
     headerLabel.textColor = [Colors apphuntWhiteColor];
-
     [customView addSubview:headerLabel];
-    
     return customView;
 }
 
@@ -107,21 +108,22 @@
     
     //I change from a button to an imageView with a gesture because I wanted to add custom the radius corner. Also, I pass the identifier as the tag of the clicked view. I'm sure there is a proper way to do all of this - such as subclass & identifier as a property but withotu UIbutton I don't know how to make it. Maybe also apply a mask and not a UICorner to the image so I can keep the image and the button.
     
-    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 15, 50, 50)];
-    imgView.layer.cornerRadius = 10.0f;
-    imgView.clipsToBounds = YES;
-    imgView.tag = [app.appstoreIdentifier integerValue];
+    __weak UIImageView *iconButton = cell.iconButton;
+
+    iconButton.tag = [app.appstoreIdentifier integerValue];
+    
     if(![app.iconPath isKindOfClass:[NSNull class]]) {
-    //NSData * iconData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: app.iconPath]];
-        
-    [imgView setImageWithURL:[NSURL URLWithString:app.iconPath]];
-    [imgView setUserInteractionEnabled:YES];
+    [iconButton setUserInteractionEnabled:YES];
+    [iconButton setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:app.iconPath]]placeholderImage:[UIImage imageNamed:@"Logo.png"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            iconButton.image = image;
+            CALayer *layer = iconButton.layer;
+            layer.masksToBounds = YES;
+            layer.cornerRadius = 10.0f;
+        } failure:NULL];
     UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openAppStore:)];
     [singleTap setNumberOfTapsRequired:1];
-    [imgView addGestureRecognizer:singleTap];
+    [iconButton addGestureRecognizer:singleTap];
     }
-    [cell addSubview:imgView];
-
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -177,8 +179,8 @@
 #pragma mark Networking Service
 
 -(void)makeAppsRequests{
-    
-    NSString *stringUrl = [NSString stringWithFormat:@"http://apphuntdev.herokuapp.com/v1/apps?from_day=%@&to_day=%@",self.datesSectionTitles.lastObject,self.datesSectionTitles.firstObject];
+    ApplicationsURLs *applicationURL = [[ApplicationsURLs alloc] init];
+    NSString *stringUrl = [NSString stringWithFormat:@"%@/apps/?from_day=%@&to_day=%@", applicationURL.apphuntServiceURL, self.datesSectionTitles.lastObject,self.datesSectionTitles.firstObject];
     NSLog(@"%@", stringUrl);
     NSURL *url = [NSURL URLWithString:stringUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -192,10 +194,12 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Request Failed: %@,%@", error, error.userInfo);
     }];
-    
     [operation start];
-    
 }
+
+
+
+
 
 - (App *)AppObjectFromDictionary:(NSDictionary *)dictionary {
     App   *appObject = [[App alloc] initWithData:dictionary];

@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *taglineLabel;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *countVotesLabel;
+@property (strong, nonatomic) UIImageView *iconButton;
 
 @end
