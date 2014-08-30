@@ -12,7 +12,11 @@
 #import "UIButton+AFNetworking.h"
 #import "Colors.h"
 #import "ApplicationsURLs.h"
-#import "downloadButton.h"
+#import "UIScrollView+SVInfiniteScrolling.h"
+
+static int nbOfLoadedDays = 2;
+//Must be a multiple of nbOfLoadingDays
+static int nbTotalOfDaysAllowed = 2*100;
 
 @interface MainTableViewController ()
 
@@ -32,21 +36,37 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Initialize
+    self.currentToDate = [NSDate date];
+    self.currentFromDate = [self fromDateWith:self.currentToDate];
+    self.datesSectionTitles = [self datesArray];
+    self.appsDictionary = [[NSMutableDictionary alloc]init];
+   
+    
+    // Init Table List
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.datesSectionTitles = [self datesArray];
     [self.view addSubview:self.tableView];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    //load more data when scroll to the bottom
+    
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        [weakSelf makeAppsRequests];
+    }];
+    
     [self makeAppsRequests];
-   // [self.tableView reloadData];
 }
 
 
 #pragma mark - Table View Data Source
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.datesSectionTitles.count;
+    return self.appsDictionary.count;
 }
 
 
@@ -90,8 +110,6 @@
     NSDictionary *appsDictionary = [apps objectAtIndex:indexPath.row];
     App *app = [self AppObjectFromDictionary:appsDictionary];
     cell.nameLabel.text = app.name;
-    
-    
     NSMutableAttributedString *attrStringTagline = [[NSMutableAttributedString alloc] initWithString:app.tagline];
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     [style setLineBreakMode:NSLineBreakByWordWrapping];
@@ -138,12 +156,11 @@
 }
 
 
-#pragma mark Open App Store
 
 
 #pragma mark - OpenAppStoreDelegate
 - (void)openAppStore:(UIGestureRecognizer *)sender{
-    NSString *identifier = [NSString stringWithFormat:@"%d", sender.view.tag] ;
+    NSString *identifier = [NSString stringWithFormat:@"%ld", (long)sender.view.tag] ;
     NSLog(@"click on %@",identifier);
     SKStoreProductViewController *storeProductViewController = [[SKStoreProductViewController alloc]init];
     [storeProductViewController setDelegate:self];
@@ -180,7 +197,7 @@
 
 -(void)makeAppsRequests{
     ApplicationsURLs *applicationURL = [[ApplicationsURLs alloc] init];
-    NSString *stringUrl = [NSString stringWithFormat:@"%@/apps/?from_day=%@&to_day=%@", applicationURL.apphuntServiceURL, self.datesSectionTitles.lastObject,self.datesSectionTitles.firstObject];
+    NSString *stringUrl = [NSString stringWithFormat:@"%@/apps/?from_day=%@&to_day=%@", applicationURL.apphuntServiceURL, [self formattedDate:self.currentFromDate], [self formattedDate:self.currentToDate]];
     NSLog(@"%@", stringUrl);
     NSURL *url = [NSURL URLWithString:stringUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -188,23 +205,38 @@
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //NSLog(@"The Array: %@", responseObject);
-        self.appsDictionary = responseObject;
-        [self.tableView reloadData];
+        int currentSection = [self.appsDictionary count];
+        
+        //Update the request days
+        self.currentToDate = [self newToDateWith:self.currentToDate];
+        self.currentFromDate = [self fromDateWith:self.currentToDate];
+        
+        //Save the dictionary of apps into the existing appsDictionary
+        [self.appsDictionary addEntriesFromDictionary:responseObject];
+        [self reloadTableView:currentSection];
+        //Clear the infinite scroll
+        [self.tableView.infiniteScrollingView stopAnimating];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        self.tableView.showsInfiniteScrolling = NO;
         NSLog(@"Request Failed: %@,%@", error, error.userInfo);
     }];
     [operation start];
 }
 
 
-
+- (void)reloadTableView:(int)startingSection;
+{
+    NSIndexSet *insertIndexSet = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(startingSection, nbOfLoadedDays + 1)];
+    [self.tableView insertSections:insertIndexSet withRowAnimation:UITableViewRowAnimationFade];
+}
 
 
 - (App *)AppObjectFromDictionary:(NSDictionary *)dictionary {
     App   *appObject = [[App alloc] initWithData:dictionary];
     return appObject;
 }
+
+#pragma mark Methods related to Dates
 
 -(NSMutableArray *)datesArray {
     NSDate *date = [NSDate date];
@@ -213,7 +245,7 @@
     NSString *now = [dateFormatter stringFromDate:date];
     NSMutableArray *datesArray = [[NSMutableArray alloc] initWithObjects: now, nil];
     
-    for (int i = 1; i <= 5; i++) {
+    for (int i = 1; i <= nbTotalOfDaysAllowed; i++) {
         NSString *dateString;
         NSDate *newDate = [NSDate dateWithTimeInterval:-24*3600*i sinceDate:date];
         dateString = [dateFormatter stringFromDate:newDate];
@@ -221,6 +253,21 @@
     }
     return datesArray;
     
+}
+
+-(NSDate *)fromDateWith:(NSDate *)toDate{
+    return [NSDate dateWithTimeInterval:-24*3600*nbOfLoadedDays sinceDate:toDate];
+}
+
+-(NSDate *)newToDateWith:(NSDate *)toDate{
+    return [NSDate dateWithTimeInterval:-24*3600*(nbOfLoadedDays+1) sinceDate:toDate];
+}
+
+-(NSString *)formattedDate:(NSDate *)date{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *formattedDate = [dateFormatter stringFromDate:date];
+    return formattedDate;
 }
 
 

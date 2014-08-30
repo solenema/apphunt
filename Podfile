@@ -4,6 +4,7 @@
 target "apphunt" do
 
 pod 'AFNetworking', '~> 2.0'
+pod 'SVPullToRefresh'
 
 
 end

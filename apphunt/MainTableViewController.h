@@ -16,7 +16,9 @@
 
 @property (strong, nonatomic) NSString *day;
 @property (strong, nonatomic) NSMutableArray *datesSectionTitles;
-@property (strong, nonatomic) NSDictionary *appsDictionary;
+@property (strong, nonatomic) NSMutableDictionary *appsDictionary;
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) NSDate *currentFromDate;
+@property (strong, nonatomic) NSDate *currentToDate;
 
 @end
