@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Colors.h"
 
 @implementation AppDelegate
 
@@ -15,7 +16,6 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     self.mainTableViewController = [[MainTableViewController alloc]initWithNibName:@"MainTableViewController" bundle:nil];
-    
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.mainTableViewController];
     self.window.rootViewController = self.mainTableViewController;
     [self.window addSubview:self.navigationController.view];

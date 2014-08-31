@@ -14,6 +14,7 @@
 #import "ApplicationsURLs.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 
+
 static int nbOfLoadedDays = 2;
 //Must be a multiple of nbOfLoadingDays
 static int nbTotalOfDaysAllowed = 2*100;
@@ -42,14 +43,37 @@ static int nbTotalOfDaysAllowed = 2*100;
     self.currentFromDate = [self fromDateWith:self.currentToDate];
     self.datesSectionTitles = [self datesArray];
     self.appsDictionary = [[NSMutableDictionary alloc]init];
-   
+    
+    //NavBar
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"ProximaNovaA-Bold" size:16.0f];
+    //label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+    label.textAlignment = NSTextAlignmentCenter;
+    // ^-Use UITextAlignmentCenter for older SDKs.
+    label.textColor = [Colors apphuntRedColor]; // change this color
+    self.navigationItem.titleView = label;
+    label.text = NSLocalizedString(@"App Hunt", @"");
+    self.navigationController.navigationBar.translucent = NO;
+    [label sizeToFit];
+    
+    //Remove the gray line below the Nav Bar
+    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+    
+    //Add Loader
+	self.spinnerView = [[LLARingSpinnerView alloc] initWithFrame:CGRectZero];
+    self.spinnerView.bounds = CGRectMake(0, 0, 40, 40);
+    self.spinnerView.tintColor = [Colors apphuntRedColor];
+    self.spinnerView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds) - 64);
     
     // Init Table List
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.view addSubview:self.tableView];
+//    self.tableView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height, 0,0,0);
+    //[self.view addSubview:self.tableView];
     
     __weak typeof(self) weakSelf = self;
     
@@ -59,9 +83,16 @@ static int nbTotalOfDaysAllowed = 2*100;
         [weakSelf makeAppsRequests];
     }];
     
-    [self makeAppsRequests];
+    [self.view addSubview:self.spinnerView];
+    [self makeFirstAppsRequest];
+   
 }
 
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.spinnerView startAnimating];
+}
 
 #pragma mark - Table View Data Source
 
@@ -75,7 +106,6 @@ static int nbTotalOfDaysAllowed = 2*100;
     // create the parent view that will hold header Label
     UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,300,60)];
     customView.backgroundColor = [Colors apphuntLightGrayColor];
-    
     // create the label objects
     UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero] ;
     headerLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0f];
@@ -121,7 +151,6 @@ static int nbTotalOfDaysAllowed = 2*100;
     [attrStringTagline addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, 0)];
     }
     cell.taglineLabel.attributedText = attrStringTagline;
-    cell.countVotesLabel.text = [NSString stringWithFormat:@"%d votes", app.votesCount];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     //I change from a button to an imageView with a gesture because I wanted to add custom the radius corner. Also, I pass the identifier as the tag of the clicked view. I'm sure there is a proper way to do all of this - such as subclass & identifier as a property but withotu UIbutton I don't know how to make it. Maybe also apply a mask and not a UICorner to the image so I can keep the image and the button.
@@ -195,6 +224,43 @@ static int nbTotalOfDaysAllowed = 2*100;
 
 #pragma mark Networking Service
 
+
+
+-(void)makeFirstAppsRequest{
+    ApplicationsURLs *applicationURL = [[ApplicationsURLs alloc] init];
+    NSString *stringUrl = [NSString stringWithFormat:@"%@/apps/?from_day=%@&to_day=%@", applicationURL.apphuntServiceURL, [self formattedDate:self.currentFromDate], [self formattedDate:self.currentToDate]];
+    NSLog(@"%@", stringUrl);
+    NSURL *url = [NSURL URLWithString:stringUrl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    //AFNetworking asynchronous url request
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //Update the request days
+        self.currentToDate = [self newToDateWith:self.currentToDate];
+        self.currentFromDate = [self fromDateWith:self.currentToDate];
+        
+        //Save the dictionary of apps into the existing appsDictionary
+        [self.appsDictionary addEntriesFromDictionary:responseObject];
+        [self.spinnerView stopAnimating];
+        [self.spinnerView removeFromSuperview];
+        
+        
+        //Clear the infinite scroll
+        [self.tableView.infiniteScrollingView stopAnimating];
+        
+        [self.view addSubview:self.tableView];
+        [self.tableView reloadData];
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        self.tableView.showsInfiniteScrolling = NO;
+        NSLog(@"Request Failed: %@,%@", error, error.userInfo);
+    }];
+    [operation start];
+}
+
+
 -(void)makeAppsRequests{
     ApplicationsURLs *applicationURL = [[ApplicationsURLs alloc] init];
     NSString *stringUrl = [NSString stringWithFormat:@"%@/apps/?from_day=%@&to_day=%@", applicationURL.apphuntServiceURL, [self formattedDate:self.currentFromDate], [self formattedDate:self.currentToDate]];
@@ -206,7 +272,6 @@ static int nbTotalOfDaysAllowed = 2*100;
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         int currentSection = [self.appsDictionary count];
-        
         //Update the request days
         self.currentToDate = [self newToDateWith:self.currentToDate];
         self.currentFromDate = [self fromDateWith:self.currentToDate];

@@ -11,6 +11,8 @@
 		2573429019AFBF3A00354407 /* ApplicationsURLs.m in Sources */ = {isa = PBXBuildFile; fileRef = 2573428F19AFBF3A00354407 /* ApplicationsURLs.m */; };
 		257D8FA419AD867B0032CB8B /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 257D8FA319AD867B0032CB8B /* ProximaNova-Regular.otf */; };
 		257D8FA619AD86850032CB8B /* ProximaNovaA-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 257D8FA519AD86850032CB8B /* ProximaNovaA-Bold.otf */; };
+		2587EC8119B3652500F31B86 /* LLARingSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2587EC8019B3652500F31B86 /* LLARingSpinnerView.m */; };
+		2587EC8319B3DEE400F31B86 /* AppTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2587EC8219B3DEE400F31B86 /* AppTableViewCell.xib */; };
 		259B8AC719A0147A001C6016 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 259B8AC619A0147A001C6016 /* App.m */; };
 		259B8ACC19A0337C001C6016 /* DownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 259B8ACA19A0337C001C6016 /* DownloadViewController.xib */; };
 		25B8A2C219AD10EB001F3B0B /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B8A2C119AD10EB001F3B0B /* Colors.m */; };
@@ -19,10 +21,8 @@
 		25B8A2CC19AD13C9001F3B0B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 25B8A2C919AD13C9001F3B0B /* README.md */; };
 		25B9BDB819ABE5B400A673F0 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B9BDB619ABE5B400A673F0 /* MainTableViewController.m */; };
 		25B9BDB919ABE5B400A673F0 /* MainTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25B9BDB719ABE5B400A673F0 /* MainTableViewController.xib */; };
-		25BD523E19AAB3A50053B54F /* AppHuntRailsAFNClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BD523D19AAB3A50053B54F /* AppHuntRailsAFNClient.m */; };
 		25F017A619A3CCD100C023A5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F017A519A3CCD100C023A5 /* StoreKit.framework */; };
 		25F410CC199FF6790090F9DD /* AppTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F410CA199FF6790090F9DD /* AppTableViewCell.m */; };
-		25F410CD199FF6790090F9DD /* AppTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25F410CB199FF6790090F9DD /* AppTableViewCell.xib */; };
 		25FC2FF0199D37920091BF49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25FC2FEF199D37920091BF49 /* Foundation.framework */; };
 		25FC2FF2199D37920091BF49 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25FC2FF1199D37920091BF49 /* CoreGraphics.framework */; };
 		25FC2FF4199D37920091BF49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25FC2FF3199D37920091BF49 /* UIKit.framework */; };
@@ -57,6 +57,9 @@
 		2573428F19AFBF3A00354407 /* ApplicationsURLs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationsURLs.m; sourceTree = "<group>"; };
 		257D8FA319AD867B0032CB8B /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
 		257D8FA519AD86850032CB8B /* ProximaNovaA-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNovaA-Bold.otf"; sourceTree = "<group>"; };
+		2587EC7F19B3652500F31B86 /* LLARingSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLARingSpinnerView.h; sourceTree = "<group>"; };
+		2587EC8019B3652500F31B86 /* LLARingSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLARingSpinnerView.m; sourceTree = "<group>"; };
+		2587EC8219B3DEE400F31B86 /* AppTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppTableViewCell.xib; sourceTree = "<group>"; };
 		259B8AC519A0147A001C6016 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
 		259B8AC619A0147A001C6016 /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = App.m; sourceTree = "<group>"; };
 		259B8ACA19A0337C001C6016 /* DownloadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DownloadViewController.xib; sourceTree = "<group>"; };
@@ -69,12 +72,9 @@
 		25B9BDB519ABE5B400A673F0 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
 		25B9BDB619ABE5B400A673F0 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		25B9BDB719ABE5B400A673F0 /* MainTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewController.xib; sourceTree = "<group>"; };
-		25BD523C19AAB3A50053B54F /* AppHuntRailsAFNClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppHuntRailsAFNClient.h; sourceTree = "<group>"; };
-		25BD523D19AAB3A50053B54F /* AppHuntRailsAFNClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppHuntRailsAFNClient.m; sourceTree = "<group>"; };
 		25F017A519A3CCD100C023A5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		25F410C9199FF6790090F9DD /* AppTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTableViewCell.h; sourceTree = "<group>"; };
 		25F410CA199FF6790090F9DD /* AppTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppTableViewCell.m; sourceTree = "<group>"; };
-		25F410CB199FF6790090F9DD /* AppTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppTableViewCell.xib; sourceTree = "<group>"; };
 		25FC2FEC199D37920091BF49 /* apphunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = apphunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25FC2FEF199D37920091BF49 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		25FC2FF1199D37920091BF49 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -172,8 +172,8 @@
 		25F017A719A3D29D00C023A5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2587EC8219B3DEE400F31B86 /* AppTableViewCell.xib */,
 				25B9BDB719ABE5B400A673F0 /* MainTableViewController.xib */,
-				25F410CB199FF6790090F9DD /* AppTableViewCell.xib */,
 				25FC3026199D5EBC0091BF49 /* MainViewController.xib */,
 				259B8ACA19A0337C001C6016 /* DownloadViewController.xib */,
 			);
@@ -244,8 +244,6 @@
 				25FC2FFF199D37920091BF49 /* AppDelegate.m */,
 				25FC3001199D37920091BF49 /* Images.xcassets */,
 				25FC2FF6199D37920091BF49 /* Supporting Files */,
-				25BD523C19AAB3A50053B54F /* AppHuntRailsAFNClient.h */,
-				25BD523D19AAB3A50053B54F /* AppHuntRailsAFNClient.m */,
 			);
 			path = apphunt;
 			sourceTree = "<group>";
@@ -282,6 +280,8 @@
 		25FC301E199D37AA0091BF49 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2587EC7F19B3652500F31B86 /* LLARingSpinnerView.h */,
+				2587EC8019B3652500F31B86 /* LLARingSpinnerView.m */,
 				25F410C9199FF6790090F9DD /* AppTableViewCell.h */,
 				25F410CA199FF6790090F9DD /* AppTableViewCell.m */,
 				25B9BDB519ABE5B400A673F0 /* MainTableViewController.h */,
@@ -382,10 +382,10 @@
 				257D8FA619AD86850032CB8B /* ProximaNovaA-Bold.otf in Resources */,
 				25FC2FFA199D37920091BF49 /* InfoPlist.strings in Resources */,
 				257D8FA419AD867B0032CB8B /* ProximaNova-Regular.otf in Resources */,
-				25F410CD199FF6790090F9DD /* AppTableViewCell.xib in Resources */,
 				25B9BDB919ABE5B400A673F0 /* MainTableViewController.xib in Resources */,
 				25B8A2CB19AD13C9001F3B0B /* LICENCE in Resources */,
 				25B8A2CC19AD13C9001F3B0B /* README.md in Resources */,
+				2587EC8319B3DEE400F31B86 /* AppTableViewCell.xib in Resources */,
 				25FC3028199D5EBC0091BF49 /* MainViewController.xib in Resources */,
 				25FC3002199D37920091BF49 /* Images.xcassets in Resources */,
 			);
@@ -439,7 +439,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25BD523E19AAB3A50053B54F /* AppHuntRailsAFNClient.m in Sources */,
 				259B8AC719A0147A001C6016 /* App.m in Sources */,
 				2513E02319AE685300E4F354 /* downloadButton.m in Sources */,
 				25FC3000199D37920091BF49 /* AppDelegate.m in Sources */,
@@ -449,6 +448,7 @@
 				25B8A2C219AD10EB001F3B0B /* Colors.m in Sources */,
 				25FC2FFC199D37920091BF49 /* main.m in Sources */,
 				25B9BDB819ABE5B400A673F0 /* MainTableViewController.m in Sources */,
+				2587EC8119B3652500F31B86 /* LLARingSpinnerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

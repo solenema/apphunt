@@ -10,6 +10,7 @@
 #import "App.h"
 #import "AppTableViewCell.h"
 #import <StoreKit/StoreKit.h>
+#import "LLARingSpinnerView.h"
 
 
 @interface MainTableViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,SKStoreProductViewControllerDelegate>
@@ -20,5 +21,7 @@
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSDate *currentFromDate;
 @property (strong, nonatomic) NSDate *currentToDate;
+@property (nonatomic, strong) LLARingSpinnerView *spinnerView;
+
 
 @end

@@ -12,26 +12,19 @@
 
 - (void)awakeFromNib
 {
-    
-    UIFont *nameFont = [UIFont fontWithName:@"ProximaNovaA-Bold" size:16.0f];
-    UIFont *baselineFont = [UIFont fontWithName:@"ProximaNova-Regular" size:16.0f];
-    UIFont *countvotesFont = [UIFont fontWithName:@"ProximaNova-Regular" size:10.0f];
+    UIFont *nameFont = [UIFont fontWithName:@"ProximaNovaA-Bold" size:14.0f];
+    UIFont *baselineFont = [UIFont fontWithName:@"ProximaNova-Regular" size:14.0f];
     self.nameLabel.textColor = [UIColor blackColor];
     self.taglineLabel.textColor = [UIColor blackColor];
-    self.countVotesLabel.textColor = [UIColor grayColor];
     [self.nameLabel setFont:nameFont];
     [self.taglineLabel setFont:baselineFont];
-    [self.countVotesLabel setFont:countvotesFont];
     self.contentView.backgroundColor = [UIColor whiteColor];
     self.taglineLabel.numberOfLines = 2;
-    
     self.iconButton = [[UIImageView alloc]initWithFrame:CGRectMake(15, 15, 50, 50)];
     [self addSubview:self.iconButton];
-    
-
-
 
 }
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
