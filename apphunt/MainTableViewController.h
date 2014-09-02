@@ -11,9 +11,10 @@
 #import "AppTableViewCell.h"
 #import <StoreKit/StoreKit.h>
 #import "LLARingSpinnerView.h"
+#import "FailedRequestViewController.h"
 
 
-@interface MainTableViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,SKStoreProductViewControllerDelegate>
+@interface MainTableViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,SKStoreProductViewControllerDelegate,FailedRequestViewControllerDelegate>
 
 @property (strong, nonatomic) NSString *day;
 @property (strong, nonatomic) NSMutableArray *datesSectionTitles;
@@ -22,6 +23,7 @@
 @property (strong, nonatomic) NSDate *currentFromDate;
 @property (strong, nonatomic) NSDate *currentToDate;
 @property (nonatomic, strong) LLARingSpinnerView *spinnerView;
+@property (nonatomic, strong) FailedRequestViewController *failedRequestView;
 
 
 @end

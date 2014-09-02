@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2513E02319AE685300E4F354 /* downloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2513E02219AE685300E4F354 /* downloadButton.m */; };
 		2573429019AFBF3A00354407 /* ApplicationsURLs.m in Sources */ = {isa = PBXBuildFile; fileRef = 2573428F19AFBF3A00354407 /* ApplicationsURLs.m */; };
 		257D8FA419AD867B0032CB8B /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 257D8FA319AD867B0032CB8B /* ProximaNova-Regular.otf */; };
 		257D8FA619AD86850032CB8B /* ProximaNovaA-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 257D8FA519AD86850032CB8B /* ProximaNovaA-Bold.otf */; };
 		2587EC8119B3652500F31B86 /* LLARingSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2587EC8019B3652500F31B86 /* LLARingSpinnerView.m */; };
 		2587EC8319B3DEE400F31B86 /* AppTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2587EC8219B3DEE400F31B86 /* AppTableViewCell.xib */; };
+		2587EC8719B52C4500F31B86 /* FailedRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2587EC8519B52C4500F31B86 /* FailedRequestViewController.m */; };
+		2587EC8819B52C4500F31B86 /* FailedRequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2587EC8619B52C4500F31B86 /* FailedRequestViewController.xib */; };
+		2587EC8B19B52DFC00F31B86 /* CircleLineRefreshButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2587EC8A19B52DFC00F31B86 /* CircleLineRefreshButton.m */; };
 		259B8AC719A0147A001C6016 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 259B8AC619A0147A001C6016 /* App.m */; };
 		259B8ACC19A0337C001C6016 /* DownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 259B8ACA19A0337C001C6016 /* DownloadViewController.xib */; };
 		25B8A2C219AD10EB001F3B0B /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B8A2C119AD10EB001F3B0B /* Colors.m */; };
@@ -50,8 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2513E02119AE685300E4F354 /* downloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = downloadButton.h; sourceTree = "<group>"; };
-		2513E02219AE685300E4F354 /* downloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = downloadButton.m; sourceTree = "<group>"; };
 		2573428D19AFBE9A00354407 /* host.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = host.h; sourceTree = "<group>"; };
 		2573428E19AFBF3A00354407 /* ApplicationsURLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationsURLs.h; sourceTree = "<group>"; };
 		2573428F19AFBF3A00354407 /* ApplicationsURLs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationsURLs.m; sourceTree = "<group>"; };
@@ -60,6 +60,11 @@
 		2587EC7F19B3652500F31B86 /* LLARingSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLARingSpinnerView.h; sourceTree = "<group>"; };
 		2587EC8019B3652500F31B86 /* LLARingSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLARingSpinnerView.m; sourceTree = "<group>"; };
 		2587EC8219B3DEE400F31B86 /* AppTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppTableViewCell.xib; sourceTree = "<group>"; };
+		2587EC8419B52C4500F31B86 /* FailedRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailedRequestViewController.h; sourceTree = "<group>"; };
+		2587EC8519B52C4500F31B86 /* FailedRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailedRequestViewController.m; sourceTree = "<group>"; };
+		2587EC8619B52C4500F31B86 /* FailedRequestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FailedRequestViewController.xib; sourceTree = "<group>"; };
+		2587EC8919B52DFC00F31B86 /* CircleLineRefreshButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleLineRefreshButton.h; sourceTree = "<group>"; };
+		2587EC8A19B52DFC00F31B86 /* CircleLineRefreshButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleLineRefreshButton.m; sourceTree = "<group>"; };
 		259B8AC519A0147A001C6016 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
 		259B8AC619A0147A001C6016 /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = App.m; sourceTree = "<group>"; };
 		259B8ACA19A0337C001C6016 /* DownloadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DownloadViewController.xib; sourceTree = "<group>"; };
@@ -176,6 +181,7 @@
 				25B9BDB719ABE5B400A673F0 /* MainTableViewController.xib */,
 				25FC3026199D5EBC0091BF49 /* MainViewController.xib */,
 				259B8ACA19A0337C001C6016 /* DownloadViewController.xib */,
+				2587EC8619B52C4500F31B86 /* FailedRequestViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -286,8 +292,10 @@
 				25F410CA199FF6790090F9DD /* AppTableViewCell.m */,
 				25B9BDB519ABE5B400A673F0 /* MainTableViewController.h */,
 				25B9BDB619ABE5B400A673F0 /* MainTableViewController.m */,
-				2513E02119AE685300E4F354 /* downloadButton.h */,
-				2513E02219AE685300E4F354 /* downloadButton.m */,
+				2587EC8419B52C4500F31B86 /* FailedRequestViewController.h */,
+				2587EC8519B52C4500F31B86 /* FailedRequestViewController.m */,
+				2587EC8919B52DFC00F31B86 /* CircleLineRefreshButton.h */,
+				2587EC8A19B52DFC00F31B86 /* CircleLineRefreshButton.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -388,6 +396,7 @@
 				2587EC8319B3DEE400F31B86 /* AppTableViewCell.xib in Resources */,
 				25FC3028199D5EBC0091BF49 /* MainViewController.xib in Resources */,
 				25FC3002199D37920091BF49 /* Images.xcassets in Resources */,
+				2587EC8819B52C4500F31B86 /* FailedRequestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,11 +449,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				259B8AC719A0147A001C6016 /* App.m in Sources */,
-				2513E02319AE685300E4F354 /* downloadButton.m in Sources */,
+				2587EC8B19B52DFC00F31B86 /* CircleLineRefreshButton.m in Sources */,
 				25FC3000199D37920091BF49 /* AppDelegate.m in Sources */,
 				2573429019AFBF3A00354407 /* ApplicationsURLs.m in Sources */,
 				25B8A2CA19AD13C9001F3B0B /* HexColor.m in Sources */,
 				25F410CC199FF6790090F9DD /* AppTableViewCell.m in Sources */,
+				2587EC8719B52C4500F31B86 /* FailedRequestViewController.m in Sources */,
 				25B8A2C219AD10EB001F3B0B /* Colors.m in Sources */,
 				25FC2FFC199D37920091BF49 /* main.m in Sources */,
 				25B9BDB819ABE5B400A673F0 /* MainTableViewController.m in Sources */,

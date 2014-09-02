@@ -42,6 +42,7 @@ static int nbTotalOfDaysAllowed = 2*100;
     self.currentToDate = [NSDate date];
     self.currentFromDate = [self fromDateWith:self.currentToDate];
     self.datesSectionTitles = [self datesArray];
+    
     self.appsDictionary = [[NSMutableDictionary alloc]init];
     
     //NavBar
@@ -61,6 +62,7 @@ static int nbTotalOfDaysAllowed = 2*100;
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
     
+    
     //Add Loader
 	self.spinnerView = [[LLARingSpinnerView alloc] initWithFrame:CGRectZero];
     self.spinnerView.bounds = CGRectMake(0, 0, 40, 40);
@@ -72,8 +74,6 @@ static int nbTotalOfDaysAllowed = 2*100;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-//    self.tableView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height, 0,0,0);
-    //[self.view addSubview:self.tableView];
     
     __weak typeof(self) weakSelf = self;
     
@@ -85,7 +85,7 @@ static int nbTotalOfDaysAllowed = 2*100;
     
     [self.view addSubview:self.spinnerView];
     [self makeFirstAppsRequest];
-   
+    
 }
 
 
@@ -109,8 +109,21 @@ static int nbTotalOfDaysAllowed = 2*100;
     // create the label objects
     UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero] ;
     headerLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0f];
-    headerLabel.frame = CGRectMake(20,0,200,20);
+    headerLabel.frame = CGRectMake(20,1,200,20);
     headerLabel.text =  [self convertDateToSectionFormat:[self.datesSectionTitles objectAtIndex:section]];
+    if (section == 0) {
+        NSString *today = @"TODAY ";
+        headerLabel.text = [today stringByAppendingString:[self convertDateToSectionFormat:[self.datesSectionTitles objectAtIndex:0]]];
+    }
+    else if (section ==1) {
+        NSString *yesterday = @"YESTERDAY ";
+        headerLabel.text = [yesterday stringByAppendingString:[self convertDateToSectionFormat:[self.datesSectionTitles objectAtIndex:1]]];
+    }
+    else {
+        headerLabel.text =  [self convertDateToSectionFormat:[self.datesSectionTitles objectAtIndex:section]];
+        
+    }
+    
     headerLabel.textColor = [Colors apphuntWhiteColor];
     [customView addSubview:headerLabel];
     return customView;
@@ -145,10 +158,10 @@ static int nbTotalOfDaysAllowed = 2*100;
     [style setLineBreakMode:NSLineBreakByWordWrapping];
     [style setLineSpacing:0];
     if(![app.tagline isKindOfClass:[NSNull class]]) {
-    [attrStringTagline addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, [app.tagline length])];
+        [attrStringTagline addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, [app.tagline length])];
     }
     else {
-    [attrStringTagline addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, 0)];
+        [attrStringTagline addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, 0)];
     }
     cell.taglineLabel.attributedText = attrStringTagline;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -156,20 +169,20 @@ static int nbTotalOfDaysAllowed = 2*100;
     //I change from a button to an imageView with a gesture because I wanted to add custom the radius corner. Also, I pass the identifier as the tag of the clicked view. I'm sure there is a proper way to do all of this - such as subclass & identifier as a property but withotu UIbutton I don't know how to make it. Maybe also apply a mask and not a UICorner to the image so I can keep the image and the button.
     
     __weak UIImageView *iconButton = cell.iconButton;
-
+    
     iconButton.tag = [app.appstoreIdentifier integerValue];
     
     if(![app.iconPath isKindOfClass:[NSNull class]]) {
-    [iconButton setUserInteractionEnabled:YES];
-    [iconButton setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:app.iconPath]]placeholderImage:[UIImage imageNamed:@"Logo.png"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        [iconButton setUserInteractionEnabled:YES];
+        [iconButton setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:app.iconPath]]placeholderImage:[UIImage imageNamed:@"Logo.png"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
             iconButton.image = image;
             CALayer *layer = iconButton.layer;
             layer.masksToBounds = YES;
             layer.cornerRadius = 10.0f;
         } failure:NULL];
-    UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openAppStore:)];
-    [singleTap setNumberOfTapsRequired:1];
-    [iconButton addGestureRecognizer:singleTap];
+        UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openAppStore:)];
+        [singleTap setNumberOfTapsRequired:1];
+        [iconButton addGestureRecognizer:singleTap];
     }
 }
 
@@ -190,7 +203,6 @@ static int nbTotalOfDaysAllowed = 2*100;
 #pragma mark - OpenAppStoreDelegate
 - (void)openAppStore:(UIGestureRecognizer *)sender{
     NSString *identifier = [NSString stringWithFormat:@"%ld", (long)sender.view.tag] ;
-    NSLog(@"click on %@",identifier);
     SKStoreProductViewController *storeProductViewController = [[SKStoreProductViewController alloc]init];
     [storeProductViewController setDelegate:self];
     [self presentViewController:storeProductViewController animated:YES completion:nil];
@@ -244,18 +256,22 @@ static int nbTotalOfDaysAllowed = 2*100;
         [self.appsDictionary addEntriesFromDictionary:responseObject];
         [self.spinnerView stopAnimating];
         [self.spinnerView removeFromSuperview];
-        
-        
-        //Clear the infinite scroll
-        [self.tableView.infiniteScrollingView stopAnimating];
-        
         [self.view addSubview:self.tableView];
         [self.tableView reloadData];
+        LLARingSpinnerView *infiniteSpinnerView = [[LLARingSpinnerView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+        infiniteSpinnerView.tintColor = [Colors apphuntRedColor];
+        [self.tableView.infiniteScrollingView setCustomView:infiniteSpinnerView forState:SVInfiniteScrollingStateLoading];
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         self.tableView.showsInfiniteScrolling = NO;
         NSLog(@"Request Failed: %@,%@", error, error.userInfo);
+        [self.spinnerView stopAnimating];
+        [self.spinnerView removeFromSuperview];
+        self.failedRequestView = [[FailedRequestViewController alloc] initWithNibName:@"FailedRequestViewController" bundle:nil];
+        self.failedRequestView.delegate = self;
+        [self.view addSubview:self.failedRequestView.view];
+        //[self presentViewController:failedRequestVC animated:NO completion:nil];
     }];
     [operation start];
 }
@@ -283,10 +299,10 @@ static int nbTotalOfDaysAllowed = 2*100;
         [self.tableView.infiniteScrollingView stopAnimating];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         self.tableView.showsInfiniteScrolling = NO;
-        NSLog(@"Request Failed: %@,%@", error, error.userInfo);
     }];
     [operation start];
 }
+
 
 
 - (void)reloadTableView:(int)startingSection;
@@ -301,7 +317,18 @@ static int nbTotalOfDaysAllowed = 2*100;
     return appObject;
 }
 
-#pragma mark Methods related to Dates
+#pragma mark FailedRequest Delegate
+
+-(void)retryRequest{
+    [self.failedRequestView.view removeFromSuperview];
+    self.tableView.showsInfiniteScrolling = YES;
+    [self.view addSubview:self.spinnerView];
+    [self.spinnerView startAnimating];
+    [self makeFirstAppsRequest];
+}
+
+
+#pragma mark Private Methods related to Dates
 
 -(NSMutableArray *)datesArray {
     NSDate *date = [NSDate date];
@@ -340,9 +367,8 @@ static int nbTotalOfDaysAllowed = 2*100;
     NSDateFormatter *dateInitialFormat = [[NSDateFormatter alloc] init];
     [dateInitialFormat setDateFormat: @"YYYY-MM-dd"];
     NSDate *date = [dateInitialFormat dateFromString:strDate];
-    [dateInitialFormat setDateFormat:@"EEE, MMMM d"];
+    [dateInitialFormat setDateStyle:NSDateFormatterMediumStyle];
     NSString *sectionTitle = [dateInitialFormat stringFromDate:date];
-    NSLog(@"title = %@",sectionTitle);
     return sectionTitle;
 }
 

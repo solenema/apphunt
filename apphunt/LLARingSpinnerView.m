@@ -59,7 +59,7 @@ static NSString *kLLARingSpinnerAnimationKey = @"llaringspinnerview.rotation";
 
     CABasicAnimation *animation = [CABasicAnimation animation];
     animation.keyPath = @"transform.rotation";
-    animation.duration = 1.0f;
+    animation.duration = 0.5f;
     animation.fromValue = @(0.0f);
     animation.toValue = @(2 * M_PI);
     animation.repeatCount = INFINITY;
@@ -95,7 +95,7 @@ static NSString *kLLARingSpinnerAnimationKey = @"llaringspinnerview.rotation";
         _progressLayer = [CAShapeLayer layer];
         _progressLayer.strokeColor = self.tintColor.CGColor;
         _progressLayer.fillColor = nil;
-        _progressLayer.lineWidth = 1.5f;
+        _progressLayer.lineWidth = 2.0f;
     }
     return _progressLayer;
 }
