@@ -13,6 +13,7 @@
 #import "Colors.h"
 #import "ApplicationsURLs.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
+#import "UIScrollView+SVPullToRefresh.h"
 
 
 static int nbOfLoadedDays = 2;
@@ -42,17 +43,14 @@ static int nbTotalOfDaysAllowed = 2*100;
     self.currentToDate = [NSDate date];
     self.currentFromDate = [self fromDateWith:self.currentToDate];
     self.datesSectionTitles = [self datesArray];
-    
     self.appsDictionary = [[NSMutableDictionary alloc]init];
     
     //NavBar
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont fontWithName:@"ProximaNovaA-Bold" size:16.0f];
-    //label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
     label.textAlignment = NSTextAlignmentCenter;
-    // ^-Use UITextAlignmentCenter for older SDKs.
-    label.textColor = [Colors apphuntRedColor]; // change this color
+    label.textColor = [Colors apphuntRedColor];
     self.navigationItem.titleView = label;
     label.text = NSLocalizedString(@"App Hunt", @"");
     self.navigationController.navigationBar.translucent = NO;
@@ -63,7 +61,7 @@ static int nbTotalOfDaysAllowed = 2*100;
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
     
     
-    //Add Loader
+    //Add Loader (Spinner View)
 	self.spinnerView = [[LLARingSpinnerView alloc] initWithFrame:CGRectZero];
     self.spinnerView.bounds = CGRectMake(0, 0, 40, 40);
     self.spinnerView.tintColor = [Colors apphuntRedColor];
@@ -74,14 +72,21 @@ static int nbTotalOfDaysAllowed = 2*100;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
-    __weak typeof(self) weakSelf = self;
+   
     
     //load more data when scroll to the bottom
-    
+     __weak typeof(self) weakSelf = self;
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         [weakSelf makeAppsRequests];
     }];
+    
+    //Add Pull to refresh
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [weakSelf makeRefreshRequest];
+        
+
+    }];
+    
     
     [self.view addSubview:self.spinnerView];
     [self makeFirstAppsRequest];
@@ -102,7 +107,6 @@ static int nbTotalOfDaysAllowed = 2*100;
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
     // create the parent view that will hold header Label
     UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,300,60)];
     customView.backgroundColor = [Colors apphuntLightGrayColor];
@@ -143,16 +147,22 @@ static int nbTotalOfDaysAllowed = 2*100;
         [tableView registerNib:[UINib nibWithNibName:@"AppTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     }
+    
+    // change background color of selected cell
+    UIView *bgColorView = [[UIView alloc] init];
+    [bgColorView setBackgroundColor:[Colors apphuntLightGrayColor]];
+    [cell setSelectedBackgroundView:bgColorView];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(AppTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    cell.separatorInset =  UIEdgeInsetsMake(0, 15, 0, 15);
     NSString *sectionTitle = [self.datesSectionTitles objectAtIndex:indexPath.section];
     NSArray *apps = [self.appsDictionary objectForKey:sectionTitle];
     NSDictionary *appsDictionary = [apps objectAtIndex:indexPath.row];
     App *app = [self AppObjectFromDictionary:appsDictionary];
     cell.nameLabel.text = app.name;
+    // Store the Appstore identifier in the Tag for Action on cells (a bit hacky)
+    cell.tag = [app.appstoreIdentifier integerValue];
     NSMutableAttributedString *attrStringTagline = [[NSMutableAttributedString alloc] initWithString:app.tagline];
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     [style setLineBreakMode:NSLineBreakByWordWrapping];
@@ -164,14 +174,11 @@ static int nbTotalOfDaysAllowed = 2*100;
         [attrStringTagline addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, 0)];
     }
     cell.taglineLabel.attributedText = attrStringTagline;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.separatorInset =  UIEdgeInsetsMake(0, 15, 0, 15);
     
-    //I change from a button to an imageView with a gesture because I wanted to add custom the radius corner. Also, I pass the identifier as the tag of the clicked view. I'm sure there is a proper way to do all of this - such as subclass & identifier as a property but withotu UIbutton I don't know how to make it. Maybe also apply a mask and not a UICorner to the image so I can keep the image and the button.
-    
+    //Add icon of the App and make it a button
     __weak UIImageView *iconButton = cell.iconButton;
-    
     iconButton.tag = [app.appstoreIdentifier integerValue];
-    
     if(![app.iconPath isKindOfClass:[NSNull class]]) {
         [iconButton setUserInteractionEnabled:YES];
         [iconButton setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:app.iconPath]]placeholderImage:[UIImage imageNamed:@"Logo.png"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
@@ -189,7 +196,17 @@ static int nbTotalOfDaysAllowed = 2*100;
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 80;
 }
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
 
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    [self openAppStoreFromCell:cell.tag];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -200,9 +217,34 @@ static int nbTotalOfDaysAllowed = 2*100;
 
 
 
-#pragma mark - OpenAppStoreDelegate
+#pragma mark - OpenAppStore
 - (void)openAppStore:(UIGestureRecognizer *)sender{
     NSString *identifier = [NSString stringWithFormat:@"%ld", (long)sender.view.tag] ;
+    SKStoreProductViewController *storeProductViewController = [[SKStoreProductViewController alloc]init];
+    [storeProductViewController setDelegate:self];
+    [self presentViewController:storeProductViewController animated:YES completion:nil];
+    //THIS IS NOT WORKING.
+    //    Activity loader does not work on top of storeProductVC
+    //    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    //    indicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
+    //    indicator.center = self.view.center;
+    //    [storeProductViewController.view.window addSubview:indicator];
+    //    [indicator bringSubviewToFront:self.view];
+    //    [UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
+    //    [indicator startAnimating];
+    [storeProductViewController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:identifier} completionBlock:^(BOOL result, NSError *error) {
+        if(error){
+            NSLog(@"Error %@ with User info %@", error, [error userInfo]);
+        }
+        else {
+            return;
+        }
+    }];
+}
+
+
+- (void)openAppStoreFromCell:(NSInteger)appIdentifier{
+    NSString *identifier = [NSString stringWithFormat:@"%ld", (long)appIdentifier] ;
     SKStoreProductViewController *storeProductViewController = [[SKStoreProductViewController alloc]init];
     [storeProductViewController setDelegate:self];
     [self presentViewController:storeProductViewController animated:YES completion:nil];
@@ -225,7 +267,6 @@ static int nbTotalOfDaysAllowed = 2*100;
 }
 
 
-
 #pragma mark - SKStoreProductViewController Delegate
 //we need to conform the MTViewController class to the SKStoreProductViewControllerDelegate protocol by implementing the productViewControllerDidFinish: method.
 
@@ -235,7 +276,6 @@ static int nbTotalOfDaysAllowed = 2*100;
 }
 
 #pragma mark Networking Service
-
 
 
 -(void)makeFirstAppsRequest{
@@ -258,9 +298,14 @@ static int nbTotalOfDaysAllowed = 2*100;
         [self.spinnerView removeFromSuperview];
         [self.view addSubview:self.tableView];
         [self.tableView reloadData];
+        
+        //Don't know if it is the best moment to do it and also if I don't start the animation, the spinner is not animated.
         LLARingSpinnerView *infiniteSpinnerView = [[LLARingSpinnerView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
         infiniteSpinnerView.tintColor = [Colors apphuntRedColor];
-        [self.tableView.infiniteScrollingView setCustomView:infiniteSpinnerView forState:SVInfiniteScrollingStateLoading];
+        [infiniteSpinnerView startAnimating];
+        //[self.tableView.infiniteScrollingView setCustomView:infiniteSpinnerView forState:SVInfiniteScrollingStateAll];
+        [self.tableView.pullToRefreshView setCustomView:infiniteSpinnerView forState:SVInfiniteScrollingStateAll];
+      
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -275,6 +320,14 @@ static int nbTotalOfDaysAllowed = 2*100;
     }];
     [operation start];
 }
+
+
+
+
+-(void)makeRefreshRequest{
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self.tableView.pullToRefreshView selector:@selector(stopAnimating) userInfo:nil repeats:YES];
+}
+
 
 
 -(void)makeAppsRequests{
@@ -303,22 +356,6 @@ static int nbTotalOfDaysAllowed = 2*100;
     [operation start];
 }
 
-
-
-- (void)reloadTableView:(int)startingSection;
-{
-    NSIndexSet *insertIndexSet = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(startingSection, nbOfLoadedDays + 1)];
-    [self.tableView insertSections:insertIndexSet withRowAnimation:UITableViewRowAnimationFade];
-}
-
-
-- (App *)AppObjectFromDictionary:(NSDictionary *)dictionary {
-    App   *appObject = [[App alloc] initWithData:dictionary];
-    return appObject;
-}
-
-#pragma mark FailedRequest Delegate
-
 -(void)retryRequest{
     [self.failedRequestView.view removeFromSuperview];
     self.tableView.showsInfiniteScrolling = YES;
@@ -328,7 +365,22 @@ static int nbTotalOfDaysAllowed = 2*100;
 }
 
 
-#pragma mark Private Methods related to Dates
+
+
+- (void)reloadTableView:(int)startingSection;
+{
+    NSIndexSet *insertIndexSet = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(startingSection, nbOfLoadedDays + 1)];
+    [self.tableView insertSections:insertIndexSet withRowAnimation:UITableViewRowAnimationFade];
+}
+
+
+#pragma mark Private Methods
+
+- (App *)AppObjectFromDictionary:(NSDictionary *)dictionary {
+    App   *appObject = [[App alloc] initWithData:dictionary];
+    return appObject;
+}
+
 
 -(NSMutableArray *)datesArray {
     NSDate *date = [NSDate date];
