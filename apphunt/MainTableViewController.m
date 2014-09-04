@@ -7,13 +7,7 @@
 //
 
 #import "MainTableViewController.h"
-#import "AFNetworking.h"
-#import "UIImageView+AFNetworking.h"
-#import "UIButton+AFNetworking.h"
-#import "Colors.h"
-#import "ApplicationsURLs.h"
-#import "UIScrollView+SVInfiniteScrolling.h"
-#import "UIScrollView+SVPullToRefresh.h"
+
 
 
 static int nbOfLoadedDays = 2;
@@ -90,6 +84,13 @@ static int nbTotalOfDaysAllowed = 2*100;
     
     [self.view addSubview:self.spinnerView];
     [self makeFirstAppsRequest];
+    
+    //Add Onboarding
+    [[AMPopTip appearance] setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:14]];
+    self.welcomePop = [[AMPopTip alloc] initWithFrame:CGRectZero];
+    self.welcomePop.popoverColor = [Colors apphuntRedColor];
+    [self.welcomePop showText:@"Hello" direction:AMPopTipDirectionUp maxWidth:200 inView:self.view fromFrame:self.navigationController.navigationBar.frame];
+    [self.view addSubview:self.welcomePop];
     
 }
 

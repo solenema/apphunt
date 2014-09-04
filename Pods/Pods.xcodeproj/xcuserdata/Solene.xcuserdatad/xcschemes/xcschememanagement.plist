@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-apphunt-AMPopTip.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-apphunt-SVPullToRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>47CCBB54F15840FBA026C0A1</key>
+		<key>1B88534401314B4C9CF40DF5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>78FDDA2ACCD8428EB221A82E</key>
+		<key>6610717603574D5E88481420</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E028195FEC764779BB2D40DC</key>
+		<key>AB426D84A67544388C656135</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CCAA46CB8A594119863E70E3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

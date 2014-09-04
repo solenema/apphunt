@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CircleLineRefreshButton.h"
+#import "Colors.h"
 
 @protocol FailedRequestViewControllerDelegate <NSObject>
 

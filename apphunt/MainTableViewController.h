@@ -12,6 +12,14 @@
 #import <StoreKit/StoreKit.h>
 #import "LLARingSpinnerView.h"
 #import "FailedRequestViewController.h"
+#import "AMPopTip.h"
+#import "AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
+#import "UIButton+AFNetworking.h"
+#import "Colors.h"
+#import "ApplicationsURLs.h"
+#import "UIScrollView+SVInfiniteScrolling.h"
+#import "UIScrollView+SVPullToRefresh.h"
 
 
 @interface MainTableViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,SKStoreProductViewControllerDelegate,FailedRequestViewControllerDelegate>
@@ -24,6 +32,7 @@
 @property (strong, nonatomic) NSDate *currentToDate;
 @property (nonatomic, strong) LLARingSpinnerView *spinnerView;
 @property (nonatomic, strong) FailedRequestViewController *failedRequestView;
+@property (nonatomic, strong) AMPopTip *welcomePop;
 
 
 @end

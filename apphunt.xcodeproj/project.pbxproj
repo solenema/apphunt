@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2535DC8019B8C83E00A48168 /* OnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2535DC7F19B8C83E00A48168 /* OnboardingViewController.m */; };
 		2573429019AFBF3A00354407 /* ApplicationsURLs.m in Sources */ = {isa = PBXBuildFile; fileRef = 2573428F19AFBF3A00354407 /* ApplicationsURLs.m */; };
 		257D8FA419AD867B0032CB8B /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 257D8FA319AD867B0032CB8B /* ProximaNova-Regular.otf */; };
 		257D8FA619AD86850032CB8B /* ProximaNovaA-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 257D8FA519AD86850032CB8B /* ProximaNovaA-Bold.otf */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2535DC7E19B8C83E00A48168 /* OnboardingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnboardingViewController.h; sourceTree = "<group>"; };
+		2535DC7F19B8C83E00A48168 /* OnboardingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnboardingViewController.m; sourceTree = "<group>"; };
 		2573428D19AFBE9A00354407 /* host.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = host.h; sourceTree = "<group>"; };
 		2573428E19AFBF3A00354407 /* ApplicationsURLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationsURLs.h; sourceTree = "<group>"; };
 		2573428F19AFBF3A00354407 /* ApplicationsURLs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationsURLs.m; sourceTree = "<group>"; };
@@ -182,6 +185,10 @@
 				25FC3026199D5EBC0091BF49 /* MainViewController.xib */,
 				259B8ACA19A0337C001C6016 /* DownloadViewController.xib */,
 				2587EC8619B52C4500F31B86 /* FailedRequestViewController.xib */,
+				2587EC7F19B3652500F31B86 /* LLARingSpinnerView.h */,
+				2587EC8019B3652500F31B86 /* LLARingSpinnerView.m */,
+				2587EC8919B52DFC00F31B86 /* CircleLineRefreshButton.h */,
+				2587EC8A19B52DFC00F31B86 /* CircleLineRefreshButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -286,16 +293,14 @@
 		25FC301E199D37AA0091BF49 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2587EC7F19B3652500F31B86 /* LLARingSpinnerView.h */,
-				2587EC8019B3652500F31B86 /* LLARingSpinnerView.m */,
+				2535DC7E19B8C83E00A48168 /* OnboardingViewController.h */,
+				2535DC7F19B8C83E00A48168 /* OnboardingViewController.m */,
 				25F410C9199FF6790090F9DD /* AppTableViewCell.h */,
 				25F410CA199FF6790090F9DD /* AppTableViewCell.m */,
 				25B9BDB519ABE5B400A673F0 /* MainTableViewController.h */,
 				25B9BDB619ABE5B400A673F0 /* MainTableViewController.m */,
 				2587EC8419B52C4500F31B86 /* FailedRequestViewController.h */,
 				2587EC8519B52C4500F31B86 /* FailedRequestViewController.m */,
-				2587EC8919B52DFC00F31B86 /* CircleLineRefreshButton.h */,
-				2587EC8A19B52DFC00F31B86 /* CircleLineRefreshButton.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -451,6 +456,7 @@
 				259B8AC719A0147A001C6016 /* App.m in Sources */,
 				2587EC8B19B52DFC00F31B86 /* CircleLineRefreshButton.m in Sources */,
 				25FC3000199D37920091BF49 /* AppDelegate.m in Sources */,
+				2535DC8019B8C83E00A48168 /* OnboardingViewController.m in Sources */,
 				2573429019AFBF3A00354407 /* ApplicationsURLs.m in Sources */,
 				25B8A2CA19AD13C9001F3B0B /* HexColor.m in Sources */,
 				25F410CC199FF6790090F9DD /* AppTableViewCell.m in Sources */,
