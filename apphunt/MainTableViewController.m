@@ -81,16 +81,8 @@ static int nbTotalOfDaysAllowed = 2*100;
 
     }];
     
-    
     [self.view addSubview:self.spinnerView];
     [self makeFirstAppsRequest];
-    
-    //Add Onboarding
-    [[AMPopTip appearance] setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:14]];
-    self.welcomePop = [[AMPopTip alloc] initWithFrame:CGRectZero];
-    self.welcomePop.popoverColor = [Colors apphuntRedColor];
-    [self.welcomePop showText:@"Hello" direction:AMPopTipDirectionUp maxWidth:200 inView:self.view fromFrame:self.navigationController.navigationBar.frame];
-    [self.view addSubview:self.welcomePop];
     
 }
 
@@ -98,6 +90,44 @@ static int nbTotalOfDaysAllowed = 2*100;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.spinnerView startAnimating];
+}
+
+-(void)displayViewsAndData{
+    [self.spinnerView stopAnimating];
+    [self.spinnerView removeFromSuperview];
+    [self.view addSubview:self.tableView];
+    [self.tableView reloadData];
+    //Don't know if it is the best moment to do it and also if I don't start the animation, the spinner is not animated.
+    LLARingSpinnerView *infiniteSpinnerView = [[LLARingSpinnerView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    infiniteSpinnerView.tintColor = [Colors apphuntRedColor];
+    [infiniteSpinnerView startAnimating];
+    //[self.tableView.infiniteScrollingView setCustomView:infiniteSpinnerView forState:SVInfiniteScrollingStateAll];
+    [self.tableView.pullToRefreshView setCustomView:infiniteSpinnerView forState:SVInfiniteScrollingStateAll];
+    //Add Onboarding if first time
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasSeenTutorial"]) {
+        [self displayTutorial];
+    }
+
+}
+
+-(void)displayTutorial{
+    
+    [[AMPopTip appearance] setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:14]];
+    [[AMPopTip appearance] setTextColor:[Colors apphuntWhiteColor]];
+    self.welcomePop = [[AMPopTip alloc] initWithFrame:CGRectZero];
+    self.welcomePop.popoverColor = [Colors apphuntRedColor];
+    NSString *welcomeText = [NSString stringWithFormat:@"Welcome on App Hunt!\nWe gather iOS apps posted on Product Hunt everyday and make it easy for app lovers to download them!"];
+    [self.welcomePop showText:welcomeText direction:AMPopTipDirectionDown maxWidth:200 inView:self.view fromFrame:CGRectMake(self.view.frame.size.width/2,15,0,0)];
+    NSLog(@"%f", self.navigationController.navigationBar.frame.size.height);
+    [self.view addSubview:self.welcomePop];
+    UITapGestureRecognizer *tapToClose = [[UITapGestureRecognizer alloc] initWithTarget:self.welcomePop action:@selector(hide)];
+    [tapToClose setNumberOfTapsRequired:1];
+    [self.welcomePop addGestureRecognizer:tapToClose];
+    
+    //Save in User Defaults
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasSeenTutorial"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    
 }
 
 #pragma mark - Table View Data Source
@@ -215,6 +245,15 @@ static int nbTotalOfDaysAllowed = 2*100;
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Table View Delegate
+
+#pragma mark - Table View 
+
+- (void)scrollViewDidScroll:(UIScrollView *)ScrollView{
+    if ([self.welcomePop isVisible]){
+        [self.welcomePop hide];
+    }
+}
 
 
 
@@ -289,24 +328,12 @@ static int nbTotalOfDaysAllowed = 2*100;
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //Update the request days
-        self.currentToDate = [self newToDateWith:self.currentToDate];
-        self.currentFromDate = [self fromDateWith:self.currentToDate];
-        
-        //Save the dictionary of apps into the existing appsDictionary
-        [self.appsDictionary addEntriesFromDictionary:responseObject];
-        [self.spinnerView stopAnimating];
-        [self.spinnerView removeFromSuperview];
-        [self.view addSubview:self.tableView];
-        [self.tableView reloadData];
-        
-        //Don't know if it is the best moment to do it and also if I don't start the animation, the spinner is not animated.
-        LLARingSpinnerView *infiniteSpinnerView = [[LLARingSpinnerView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-        infiniteSpinnerView.tintColor = [Colors apphuntRedColor];
-        [infiniteSpinnerView startAnimating];
-        //[self.tableView.infiniteScrollingView setCustomView:infiniteSpinnerView forState:SVInfiniteScrollingStateAll];
-        [self.tableView.pullToRefreshView setCustomView:infiniteSpinnerView forState:SVInfiniteScrollingStateAll];
-      
+    //Update the request days
+    self.currentToDate = [self newToDateWith:self.currentToDate];
+    self.currentFromDate = [self fromDateWith:self.currentToDate];
+    //Save the dictionary of apps into the existing appsDictionary
+    [self.appsDictionary addEntriesFromDictionary:responseObject];
+    [self displayViewsAndData];
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -321,6 +348,7 @@ static int nbTotalOfDaysAllowed = 2*100;
     }];
     [operation start];
 }
+
 
 
 
