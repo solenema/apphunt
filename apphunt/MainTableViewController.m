@@ -52,7 +52,7 @@ static int nbTotalOfDaysAllowed = 2*100;
     
     //Remove the gray line below the Nav Bar
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+    [[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"bottom-line"]]; 
     
     
     //Add Loader (Spinner View)

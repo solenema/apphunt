@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>32057D23-2A0C-454A-B07C-693FD55A93B5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>apphunt</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DBFBC974-E4B5-4C49-B7B1-7236DD1609EF</key>
+		<string>https://github.com/solenema/apphunt.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>apphunt.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DBFBC974-E4B5-4C49-B7B1-7236DD1609EF</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/solenema/apphunt.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DBFBC974-E4B5-4C49-B7B1-7236DD1609EF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DBFBC974-E4B5-4C49-B7B1-7236DD1609EF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>apphunt</string>
+		</dict>
+	</array>
+</dict>
+</plist>

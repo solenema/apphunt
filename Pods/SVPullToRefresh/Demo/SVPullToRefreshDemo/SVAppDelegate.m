@@ -1,27 +1,24 @@
 //
-//  AppDelegate.m
-//  apphunt
+//  SVAppDelegate.m
+//  SVPullToRefreshDemo
 //
-//  Created by Solene Maitre on 14/08/14.
-//  Copyright (c) 2014 Enquire. All rights reserved.
+//  Created by Sam Vermette on 23.04.12.
+//  Copyright (c) 2012 samvermette.com. All rights reserved.
 //
 
-#import "AppDelegate.h"
-#import "Colors.h"
+#import "SVAppDelegate.h"
 
-static NSString *kLastCloseTimeKey = @"LastCloseTimeKey";
-static CGFloat const kMinSleepTimeBeforeForceReload = 15; // 3 minutes
+#import "SVRootViewController.h"
 
-@implementation AppDelegate
+@implementation SVAppDelegate
+
+@synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
-    self.mainTableViewController = [[MainTableViewController alloc]initWithNibName:@"MainTableViewController" bundle:nil];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.mainTableViewController];
-    self.window.rootViewController = self.mainTableViewController;
-    [self.window addSubview:self.navigationController.view];
+    // Override point for customization after application launch.
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[SVRootViewController alloc] initWithNibName:@"SVRootViewController" bundle:nil]];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -30,11 +27,6 @@ static CGFloat const kMinSleepTimeBeforeForceReload = 15; // 3 minutes
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    
-    NSDate *now = [NSDate date];
-    [[NSUserDefaults standardUserDefaults] setObject:now forKey:kLastCloseTimeKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -51,29 +43,11 @@ static CGFloat const kMinSleepTimeBeforeForceReload = 15; // 3 minutes
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    if([self isOpenAfterLongSleep]) {
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        self.mainTableViewController = [[MainTableViewController alloc]initWithNibName:@"MainTableViewController" bundle:nil];
-        self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.mainTableViewController];
-        self.window.rootViewController = self.mainTableViewController;
-        [self.window addSubview:self.navigationController.view];
-        [self.window makeKeyAndVisible];
-        NSLog(@"IsOpenAfterLongSleep");
-    }
-
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-
--(BOOL)isOpenAfterLongSleep{
-    NSDate *now = [NSDate date];
-    NSDate *lastCloseTime = [[NSUserDefaults standardUserDefaults] objectForKey:kLastCloseTimeKey];
-    return lastCloseTime != nil && ([now timeIntervalSinceDate:lastCloseTime] > kMinSleepTimeBeforeForceReload);
-
 }
 
 @end
