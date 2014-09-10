@@ -10,29 +10,29 @@
 	<string>apphunt</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>DBFBC974-E4B5-4C49-B7B1-7236DD1609EF</key>
+		<key>132ACD49FE0F7770DF6543C5E6DF504376DD9BB2</key>
 		<string>https://github.com/solenema/apphunt.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>apphunt.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>DBFBC974-E4B5-4C49-B7B1-7236DD1609EF</key>
+		<key>132ACD49FE0F7770DF6543C5E6DF504376DD9BB2</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/solenema/apphunt.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>DBFBC974-E4B5-4C49-B7B1-7236DD1609EF</string>
+	<string>132ACD49FE0F7770DF6543C5E6DF504376DD9BB2</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>DBFBC974-E4B5-4C49-B7B1-7236DD1609EF</string>
+			<string>132ACD49FE0F7770DF6543C5E6DF504376DD9BB2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>apphunt</string>
 		</dict>

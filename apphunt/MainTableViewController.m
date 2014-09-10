@@ -10,7 +10,7 @@
 
 
 
-static int nbOfLoadedDays = 2;
+static int nbOfLoadedDays = 1;
 //Must be a multiple of nbOfLoadingDays
 static int nbTotalOfDaysAllowed = 2*100;
 
@@ -52,11 +52,12 @@ static int nbTotalOfDaysAllowed = 2*100;
     
     //Remove the gray line below the Nav Bar
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"bottom-line"]]; 
+    [[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"bottom-line"]];
+    [[UINavigationBar appearance] setTintColor:[Colors apphuntRedColor]];
     
     
     //Add Loader (Spinner View)
-	self.spinnerView = [[LLARingSpinnerView alloc] initWithFrame:CGRectZero];
+    self.spinnerView = [[LLARingSpinnerView alloc] initWithFrame:CGRectZero];
     self.spinnerView.bounds = CGRectMake(0, 0, 40, 40);
     self.spinnerView.tintColor = [Colors apphuntRedColor];
     self.spinnerView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds) - 64);
@@ -66,10 +67,10 @@ static int nbTotalOfDaysAllowed = 2*100;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-   
+    
     
     //load more data when scroll to the bottom
-     __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         [weakSelf makeAppsRequests];
     }];
@@ -78,7 +79,7 @@ static int nbTotalOfDaysAllowed = 2*100;
     [self.tableView addPullToRefreshWithActionHandler:^{
         [weakSelf makeRefreshRequest];
         
-
+        
     }];
     
     [self.view addSubview:self.spinnerView];
@@ -97,28 +98,27 @@ static int nbTotalOfDaysAllowed = 2*100;
     [self.spinnerView removeFromSuperview];
     [self.view addSubview:self.tableView];
     [self.tableView reloadData];
+    
     //Don't know if it is the best moment to do it and also if I don't start the animation, the spinner is not animated.
     LLARingSpinnerView *infiniteSpinnerView = [[LLARingSpinnerView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
     infiniteSpinnerView.tintColor = [Colors apphuntRedColor];
     [infiniteSpinnerView startAnimating];
-    //[self.tableView.infiniteScrollingView setCustomView:infiniteSpinnerView forState:SVInfiniteScrollingStateAll];
     [self.tableView.pullToRefreshView setCustomView:infiniteSpinnerView forState:SVInfiniteScrollingStateAll];
-    //Add Onboarding if first time
+    
+    //Add Pop Up if first time
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasSeenTutorial"]) {
         [self displayTutorial];
     }
-
+    
 }
 
 -(void)displayTutorial{
-    
     [[AMPopTip appearance] setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:14]];
     [[AMPopTip appearance] setTextColor:[Colors apphuntWhiteColor]];
     self.welcomePop = [[AMPopTip alloc] initWithFrame:CGRectZero];
     self.welcomePop.popoverColor = [Colors apphuntRedColor];
-    NSString *welcomeText = [NSString stringWithFormat:@"Welcome on App Hunt!\nWe gather iOS apps posted on Product Hunt everyday and make it easy for app lovers to download them!"];
+    NSString *welcomeText = [NSString stringWithFormat:@"Hey App Hunters!\nWe gather iOS apps posted on Product Hunt. Install and test the latest apps in 2 taps!"];
     [self.welcomePop showText:welcomeText direction:AMPopTipDirectionDown maxWidth:200 inView:self.view fromFrame:CGRectMake(self.view.frame.size.width/2,15,0,0)];
-    NSLog(@"%f", self.navigationController.navigationBar.frame.size.height);
     [self.view addSubview:self.welcomePop];
     UITapGestureRecognizer *tapToClose = [[UITapGestureRecognizer alloc] initWithTarget:self.welcomePop action:@selector(hide)];
     [tapToClose setNumberOfTapsRequired:1];
@@ -127,7 +127,6 @@ static int nbTotalOfDaysAllowed = 2*100;
     //Save in User Defaults
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasSeenTutorial"];
     [[NSUserDefaults standardUserDefaults]synchronize];
-    
 }
 
 #pragma mark - Table View Data Source
@@ -162,6 +161,11 @@ static int nbTotalOfDaysAllowed = 2*100;
     headerLabel.textColor = [Colors apphuntWhiteColor];
     [customView addSubview:headerLabel];
     return customView;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 20;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -207,7 +211,7 @@ static int nbTotalOfDaysAllowed = 2*100;
     cell.taglineLabel.attributedText = attrStringTagline;
     cell.separatorInset =  UIEdgeInsetsMake(0, 15, 0, 15);
     
-    //Add icon of the App and make it a button
+    //Add icon of the App and add a gesture (optional now as the cell can be taped for the same action)
     __weak UIImageView *iconButton = cell.iconButton;
     iconButton.tag = [app.appstoreIdentifier integerValue];
     if(![app.iconPath isKindOfClass:[NSNull class]]) {
@@ -218,7 +222,7 @@ static int nbTotalOfDaysAllowed = 2*100;
             layer.masksToBounds = YES;
             layer.cornerRadius = 10.0f;
         } failure:NULL];
-        UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openAppStore:)];
+        UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openAppStoreFromButton:)];
         [singleTap setNumberOfTapsRequired:1];
         [iconButton addGestureRecognizer:singleTap];
     }
@@ -245,9 +249,7 @@ static int nbTotalOfDaysAllowed = 2*100;
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table View Delegate
-
-#pragma mark - Table View 
+#pragma mark - Scroll View Delegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)ScrollView{
     if ([self.welcomePop isVisible]){
@@ -255,10 +257,9 @@ static int nbTotalOfDaysAllowed = 2*100;
     }
 }
 
-
-
 #pragma mark - OpenAppStore
-- (void)openAppStore:(UIGestureRecognizer *)sender{
+
+- (void)openAppStoreFromButton:(UIGestureRecognizer *)sender{
     NSString *identifier = [NSString stringWithFormat:@"%ld", (long)sender.view.tag] ;
     SKStoreProductViewController *storeProductViewController = [[SKStoreProductViewController alloc]init];
     [storeProductViewController setDelegate:self];
@@ -274,7 +275,12 @@ static int nbTotalOfDaysAllowed = 2*100;
     //    [indicator startAnimating];
     [storeProductViewController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:identifier} completionBlock:^(BOOL result, NSError *error) {
         if(error){
-            NSLog(@"Error %@ with User info %@", error, [error userInfo]);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry!"
+                                                            message:@"We were unable to access the App Store, come back in a bit!"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
         }
         else {
             return;
@@ -285,6 +291,8 @@ static int nbTotalOfDaysAllowed = 2*100;
 
 - (void)openAppStoreFromCell:(NSInteger)appIdentifier{
     NSString *identifier = [NSString stringWithFormat:@"%ld", (long)appIdentifier] ;
+    [[UINavigationBar appearance] setTintColor:[Colors apphuntRedColor]];
+    [[UINavigationBar appearance] setTranslucent:NO];
     SKStoreProductViewController *storeProductViewController = [[SKStoreProductViewController alloc]init];
     [storeProductViewController setDelegate:self];
     [self presentViewController:storeProductViewController animated:YES completion:nil];
@@ -298,7 +306,12 @@ static int nbTotalOfDaysAllowed = 2*100;
     //    [indicator startAnimating];
     [storeProductViewController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:identifier} completionBlock:^(BOOL result, NSError *error) {
         if(error){
-            NSLog(@"Error %@ with User info %@", error, [error userInfo]);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry!"
+                                                            message:@"We were unable to access the App Store, come back in a bit!"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
         }
         else {
             return;
@@ -321,24 +334,23 @@ static int nbTotalOfDaysAllowed = 2*100;
 -(void)makeFirstAppsRequest{
     ApplicationsURLs *applicationURL = [[ApplicationsURLs alloc] init];
     NSString *stringUrl = [NSString stringWithFormat:@"%@/apps/?from_day=%@&to_day=%@", applicationURL.apphuntServiceURL, [self formattedDate:self.currentFromDate], [self formattedDate:self.currentToDate]];
-    NSLog(@"%@", stringUrl);
+    //NSLog(@"%@", stringUrl);
     NSURL *url = [NSURL URLWithString:stringUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     //AFNetworking asynchronous url request
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-    //Update the request days
-    self.currentToDate = [self newToDateWith:self.currentToDate];
-    self.currentFromDate = [self fromDateWith:self.currentToDate];
-    //Save the dictionary of apps into the existing appsDictionary
-    [self.appsDictionary addEntriesFromDictionary:responseObject];
-    [self displayViewsAndData];
+        //Update the request days
+        self.currentToDate = [self newToDateWith:self.currentToDate];
+        self.currentFromDate = [self fromDateWith:self.currentToDate];
+        //Save the dictionary of apps into the existing appsDictionary
+        [self.appsDictionary addEntriesFromDictionary:responseObject];
+        [self displayViewsAndData];
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         self.tableView.showsInfiniteScrolling = NO;
-        NSLog(@"Request Failed: %@,%@", error, error.userInfo);
         [self.spinnerView stopAnimating];
         [self.spinnerView removeFromSuperview];
         self.failedRequestView = [[FailedRequestViewController alloc] initWithNibName:@"FailedRequestViewController" bundle:nil];
@@ -351,8 +363,7 @@ static int nbTotalOfDaysAllowed = 2*100;
 
 
 
-
-
+//THIS IS A FAKE REQUEST
 -(void)makeRefreshRequest{
     [NSTimer scheduledTimerWithTimeInterval:1 target:self.tableView.pullToRefreshView selector:@selector(stopAnimating) userInfo:nil repeats:YES];
 }
@@ -362,7 +373,7 @@ static int nbTotalOfDaysAllowed = 2*100;
 -(void)makeAppsRequests{
     ApplicationsURLs *applicationURL = [[ApplicationsURLs alloc] init];
     NSString *stringUrl = [NSString stringWithFormat:@"%@/apps/?from_day=%@&to_day=%@", applicationURL.apphuntServiceURL, [self formattedDate:self.currentFromDate], [self formattedDate:self.currentToDate]];
-    NSLog(@"%@", stringUrl);
+    //    NSLog(@"%@", stringUrl);
     NSURL *url = [NSURL URLWithString:stringUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     //AFNetworking asynchronous url request

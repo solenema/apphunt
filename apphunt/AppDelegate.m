@@ -8,14 +8,26 @@
 
 #import "AppDelegate.h"
 #import "Colors.h"
+#import <Crashlytics/Crashlytics.h>
+#import <HockeySDK/HockeySDK.h>
+
 
 static NSString *kLastCloseTimeKey = @"LastCloseTimeKey";
-static CGFloat const kMinSleepTimeBeforeForceReload = 15; // 3 minutes
+static CGFloat const kMinSleepTimeBeforeForceReload = 3*60; // 3 minutes
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+
 {
+    
+    [Crashlytics startWithAPIKey:@"e8909b9382f146b9274a628a93617bd33058b93a"];
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"568bde932f12ef2794036cec54c4b2cc"];
+    [[BITHockeyManager sharedHockeyManager] startManager];
+    [[BITHockeyManager sharedHockeyManager].authenticator
+     authenticateInstallation];
+
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     self.mainTableViewController = [[MainTableViewController alloc]initWithNibName:@"MainTableViewController" bundle:nil];
@@ -58,7 +70,7 @@ static CGFloat const kMinSleepTimeBeforeForceReload = 15; // 3 minutes
         self.window.rootViewController = self.mainTableViewController;
         [self.window addSubview:self.navigationController.view];
         [self.window makeKeyAndVisible];
-        NSLog(@"IsOpenAfterLongSleep");
+        //NSLog(@"IsOpenAfterLongSleep");
     }
 
 }

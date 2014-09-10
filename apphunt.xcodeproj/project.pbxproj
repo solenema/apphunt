@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250CCBD119BF5CFA005CE126 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250CCBD019BF5CFA005CE126 /* Crashlytics.framework */; };
+		250CCBD519BF643B005CE126 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250CCBD419BF643B005CE126 /* CoreText.framework */; };
+		250CCBDB19BF6459005CE126 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250CCBD719BF6459005CE126 /* HockeySDK.framework */; };
+		250CCBDC19BF6459005CE126 /* HockeySDK.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 250CCBD919BF6459005CE126 /* HockeySDK.xcconfig */; };
+		250CCBDD19BF6459005CE126 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 250CCBDA19BF6459005CE126 /* HockeySDKResources.bundle */; };
 		2573429019AFBF3A00354407 /* ApplicationsURLs.m in Sources */ = {isa = PBXBuildFile; fileRef = 2573428F19AFBF3A00354407 /* ApplicationsURLs.m */; };
 		257D8FA419AD867B0032CB8B /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 257D8FA319AD867B0032CB8B /* ProximaNova-Regular.otf */; };
 		257D8FA619AD86850032CB8B /* ProximaNovaA-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 257D8FA519AD86850032CB8B /* ProximaNovaA-Bold.otf */; };
@@ -41,6 +46,17 @@
 		8B6AAFBBE5F5492097B51B50 /* libPods-apphunt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0CAFD91E224B78AAE4D3FA /* libPods-apphunt.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		250CCBD219BF63F8005CE126 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+			);
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXContainerItemProxy section */
 		25FC300C199D37920091BF49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +68,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		250CCBD019BF5CFA005CE126 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		250CCBD419BF643B005CE126 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		250CCBD719BF6459005CE126 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
+		250CCBD919BF6459005CE126 /* HockeySDK.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = HockeySDK.xcconfig; sourceTree = "<group>"; };
+		250CCBDA19BF6459005CE126 /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
 		2573428D19AFBE9A00354407 /* host.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = host.h; sourceTree = "<group>"; };
 		2573428E19AFBF3A00354407 /* ApplicationsURLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationsURLs.h; sourceTree = "<group>"; };
 		2573428F19AFBF3A00354407 /* ApplicationsURLs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationsURLs.m; sourceTree = "<group>"; };
@@ -106,10 +127,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				250CCBD519BF643B005CE126 /* CoreText.framework in Frameworks */,
 				25F017A619A3CCD100C023A5 /* StoreKit.framework in Frameworks */,
 				25FC2FF2199D37920091BF49 /* CoreGraphics.framework in Frameworks */,
 				25FC2FF4199D37920091BF49 /* UIKit.framework in Frameworks */,
+				250CCBDB19BF6459005CE126 /* HockeySDK.framework in Frameworks */,
 				25FC2FF0199D37920091BF49 /* Foundation.framework in Frameworks */,
+				250CCBD119BF5CFA005CE126 /* Crashlytics.framework in Frameworks */,
 				8B6AAFBBE5F5492097B51B50 /* libPods-apphunt.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +151,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250CCBD619BF6459005CE126 /* HockeySDK.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				250CCBD719BF6459005CE126 /* HockeySDK.framework */,
+				250CCBD819BF6459005CE126 /* Resources */,
+			);
+			name = HockeySDK.embeddedframework;
+			path = "ThirdServices/HockeySDK-iOS/HockeySDK.embeddedframework";
+			sourceTree = "<group>";
+		};
+		250CCBD819BF6459005CE126 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				250CCBD919BF6459005CE126 /* HockeySDK.xcconfig */,
+				250CCBDA19BF6459005CE126 /* HockeySDKResources.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		2573428C19AFBE7B00354407 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +274,9 @@
 		25FC2FEE199D37920091BF49 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				250CCBD619BF6459005CE126 /* HockeySDK.embeddedframework */,
+				250CCBD419BF643B005CE126 /* CoreText.framework */,
+				250CCBD019BF5CFA005CE126 /* Crashlytics.framework */,
 				25F017A519A3CCD100C023A5 /* StoreKit.framework */,
 				25FC2FEF199D37920091BF49 /* Foundation.framework */,
 				25FC2FF1199D37920091BF49 /* CoreGraphics.framework */,
@@ -321,8 +367,11 @@
 				25FC2FE9199D37920091BF49 /* Frameworks */,
 				25FC2FEA199D37920091BF49 /* Resources */,
 				FF9162B95C9A43F5AA8FB08F /* Copy Pods Resources */,
+				250CCBCE19BF5CAE005CE126 /* ShellScript */,
+				250CCBD319BF6410005CE126 /* ShellScript */,
 			);
 			buildRules = (
+				250CCBD219BF63F8005CE126 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -358,6 +407,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Enquire;
 				TargetAttributes = {
+					25FC2FEB199D37920091BF49 = {
+						DevelopmentTeam = MK8VRTVBQP;
+					};
 					25FC3006199D37920091BF49 = {
 						TestTargetID = 25FC2FEB199D37920091BF49;
 					};
@@ -392,6 +444,8 @@
 				257D8FA419AD867B0032CB8B /* ProximaNova-Regular.otf in Resources */,
 				25B9BDB919ABE5B400A673F0 /* MainTableViewController.xib in Resources */,
 				25B8A2CB19AD13C9001F3B0B /* LICENCE in Resources */,
+				250CCBDC19BF6459005CE126 /* HockeySDK.xcconfig in Resources */,
+				250CCBDD19BF6459005CE126 /* HockeySDKResources.bundle in Resources */,
 				25B8A2CC19AD13C9001F3B0B /* README.md in Resources */,
 				2587EC8319B3DEE400F31B86 /* AppTableViewCell.xib in Resources */,
 				25FC3028199D5EBC0091BF49 /* MainViewController.xib in Resources */,
@@ -411,6 +465,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		250CCBCE19BF5CAE005CE126 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run e8909b9382f146b9274a628a93617bd33058b93a f65a7dc967883f416aa7dde0c2633acf1e775681621f4f6e01d2f03689a6b0e8";
+		};
+		250CCBD319BF6410005CE126 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FILE=\"${SRCROOT}/ThirdServices/HockeySDK-iOS/BuildAgent\"\nif [ -f \"$FILE\" ]; then\n\"$FILE\"\nfi";
+		};
 		B23563F655814B6B959152F2 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -516,6 +596,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -554,6 +635,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -576,10 +658,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Solene Maitre (QM6R34L555)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ThirdServices/HockeySDK-iOS/HockeySDK.embeddedframework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "apphunt/apphunt-Prefix.pch";
 				INFOPLIST_FILE = "apphunt/apphunt-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "46baac99-99af-42f1-83b9-dcf50d1a63b2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -590,10 +681,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Solene Maitre (MK8VRTVBQP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Solene Maitre (QM6R34L555)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ThirdServices/HockeySDK-iOS/HockeySDK.embeddedframework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "apphunt/apphunt-Prefix.pch";
 				INFOPLIST_FILE = "apphunt/apphunt-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "46baac99-99af-42f1-83b9-dcf50d1a63b2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
