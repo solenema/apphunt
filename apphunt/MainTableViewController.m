@@ -299,8 +299,6 @@ static int nbTotalOfDaysAllowed = 2*100;
 
 - (void)openAppStoreFromCell:(NSInteger)appIdentifier{
     NSString *identifier = [NSString stringWithFormat:@"%ld", (long)appIdentifier] ;
-    [[UINavigationBar appearance] setTintColor:[Colors apphuntRedColor]];
-    [[UINavigationBar appearance] setTranslucent:NO];
     SKStoreProductViewController *storeProductViewController = [[SKStoreProductViewController alloc]init];
     [storeProductViewController setDelegate:self];
     [self presentViewController:storeProductViewController animated:YES completion:nil];
