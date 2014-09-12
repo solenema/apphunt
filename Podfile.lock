@@ -21,16 +21,19 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - AMPopTip (0.3.1)
+  - Mixpanel (2.5.2)
   - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - AMPopTip
+  - Mixpanel
   - SVPullToRefresh
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
   AMPopTip: 89fe11e79abcdb5f4032c06e223a43d72f538c32
+  Mixpanel: 0115466ba70fd12e67ac4d3d071408dd1d489657
   SVPullToRefresh: d5161ebc833a38b465364412e5e307ca80bbb190
 
 COCOAPODS: 0.33.1

@@ -20,6 +20,7 @@
 #import "ApplicationsURLs.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import "UIScrollView+SVPullToRefresh.h"
+#import <Mixpanel/Mixpanel.h>
 
 
 @interface MainTableViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,SKStoreProductViewControllerDelegate,FailedRequestViewControllerDelegate>

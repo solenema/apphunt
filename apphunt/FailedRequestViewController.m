@@ -9,6 +9,7 @@
 #import "FailedRequestViewController.h"
 
 
+
 @interface FailedRequestViewController ()
 
 @end
@@ -35,6 +36,12 @@
     [self.errorMessage setFont:errorFont];
     [self.refreshButton addTarget:self action:@selector(reloadMainTableViewController:) forControlEvents:UIControlEventTouchUpInside];
     
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Failed to Load Apps" properties:nil];
 }
 
 

@@ -22,7 +22,7 @@
 
 
 + (UIColor *)apphuntLightGrayColor{
-    return [UIColor colorWithHexString:@"cac7c5"];
+    return [UIColor colorWithHexString:@"cccece"];
 }
 
 + (UIColor *)apphuntDarkGrayColor{

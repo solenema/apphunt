@@ -54,6 +54,12 @@
 #define COCOAPODS_VERSION_MINOR_AMPopTip 3
 #define COCOAPODS_VERSION_PATCH_AMPopTip 1
 
+// Mixpanel
+#define COCOAPODS_POD_AVAILABLE_Mixpanel
+#define COCOAPODS_VERSION_MAJOR_Mixpanel 2
+#define COCOAPODS_VERSION_MINOR_Mixpanel 5
+#define COCOAPODS_VERSION_PATCH_Mixpanel 2
+
 // SVPullToRefresh
 #define COCOAPODS_POD_AVAILABLE_SVPullToRefresh
 #define COCOAPODS_VERSION_MAJOR_SVPullToRefresh 0

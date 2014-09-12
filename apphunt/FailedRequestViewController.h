@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CircleLineRefreshButton.h"
 #import "Colors.h"
+#import <Mixpanel/Mixpanel.h>
 
 @protocol FailedRequestViewControllerDelegate <NSObject>
 

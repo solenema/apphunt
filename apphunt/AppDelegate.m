@@ -10,10 +10,13 @@
 #import "Colors.h"
 #import <Crashlytics/Crashlytics.h>
 #import <HockeySDK/HockeySDK.h>
+#import <Mixpanel/Mixpanel.h>
 
 
 static NSString *kLastCloseTimeKey = @"LastCloseTimeKey";
 static CGFloat const kMinSleepTimeBeforeForceReload = 3*60; // 3 minutes
+
+#define MIXPANEL_TOKEN @"33dcb40faa274c4d03d08cc0ea08e062"
 
 @implementation AppDelegate
 
@@ -26,6 +29,7 @@ static CGFloat const kMinSleepTimeBeforeForceReload = 3*60; // 3 minutes
     [[BITHockeyManager sharedHockeyManager] startManager];
     [[BITHockeyManager sharedHockeyManager].authenticator
      authenticateInstallation];
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
 
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -35,6 +39,7 @@ static CGFloat const kMinSleepTimeBeforeForceReload = 3*60; // 3 minutes
     self.window.rootViewController = self.mainTableViewController;
     [self.window addSubview:self.navigationController.view];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -71,6 +76,7 @@ static CGFloat const kMinSleepTimeBeforeForceReload = 3*60; // 3 minutes
         [self.window addSubview:self.navigationController.view];
         [self.window makeKeyAndVisible];
         //NSLog(@"IsOpenAfterLongSleep");
+        
     }
 
 }

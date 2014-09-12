@@ -91,6 +91,8 @@ static int nbTotalOfDaysAllowed = 2*100;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.spinnerView startAnimating];
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Open the App" properties:nil];
 }
 
 -(void)displayViewsAndData{
@@ -142,8 +144,8 @@ static int nbTotalOfDaysAllowed = 2*100;
     customView.backgroundColor = [Colors apphuntLightGrayColor];
     // create the label objects
     UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero] ;
-    headerLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0f];
-    headerLabel.frame = CGRectMake(20,1,200,20);
+    headerLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:14.0f];
+    headerLabel.frame = CGRectMake(20,1,200,24);
     headerLabel.text =  [self convertDateToSectionFormat:[self.datesSectionTitles objectAtIndex:section]];
     if (section == 0) {
         NSString *today = @"TODAY ";
@@ -165,7 +167,7 @@ static int nbTotalOfDaysAllowed = 2*100;
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 20;
+    return 24;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -267,14 +269,16 @@ static int nbTotalOfDaysAllowed = 2*100;
     [storeProductViewController setDelegate:self];
     [self presentViewController:storeProductViewController animated:YES completion:nil];
     //THIS IS NOT WORKING.
-    //    Activity loader does not work on top of storeProductVC
-    //    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    //    indicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
-    //    indicator.center = self.view.center;
-    //    [storeProductViewController.view.window addSubview:indicator];
-    //    [indicator bringSubviewToFront:self.view];
-    //    [UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
-    //    [indicator startAnimating];
+        //Activity loader does not work on top of storeProductVC
+//        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//        indicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
+//        indicator.center = self.view.center;
+//        [storeProductViewController.view.window addSubview:indicator];
+//        [indicator bringSubviewToFront:self.view];
+//        [UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
+//        [indicator startAnimating];
+
+
     [storeProductViewController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:identifier} completionBlock:^(BOOL result, NSError *error) {
         if(error){
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry!"
@@ -288,6 +292,8 @@ static int nbTotalOfDaysAllowed = 2*100;
             return;
         }
     }];
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Open App Store From Icon" properties:nil];
 }
 
 
@@ -319,7 +325,12 @@ static int nbTotalOfDaysAllowed = 2*100;
             return;
         }
     }];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Open App Store From Cell" properties:nil];
 }
+
+
 
 
 #pragma mark - SKStoreProductViewController Delegate
