@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  apphunt
+
+  Created by Solene Maitre on 12/09/14.
+  Copyright (c) 2014 Enquire. All rights reserved.
+*/
+
+
+//ONBOARDING
+"welcometext.popup" = "Hey App Hunters!\nWe gather iOS apps posted on Product Hunt.\n Install and test the latest apps in 2 taps!";
+
+//NAV BAR
+"title.navbar" = "Apps Hunt";
+
+//TABLE VIEWS
+"today.sectiontitle" = "TODAY - ";
+"yesterday.sectiontitle" = "YESTERDAY - ";
+
+//ERRORS
+"failedrequest.retry" = "Hit the circle to try again or check your internet connection";
+"failedrequest.openappstore" = "We couldn't load this app, check your internet connection!";
+
+

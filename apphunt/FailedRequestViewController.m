@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.errorMessage.text = NSLocalizedString(@"failedrequest.retry",nil);
     self.refreshButton = [[CircleLineRefreshButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
     self.refreshButton.center = CGPointMake(self.view.center.x, self.view.center.y - 64);
     [self.refreshButton drawCircleButton];

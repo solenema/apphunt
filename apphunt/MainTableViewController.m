@@ -46,7 +46,7 @@ static int nbTotalOfDaysAllowed = 2*100;
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [Colors apphuntRedColor];
     self.navigationItem.titleView = label;
-    label.text = NSLocalizedString(@"App Hunt", @"");
+    label.text = NSLocalizedString(@"Apps Hunt", @"");
     self.navigationController.navigationBar.translucent = NO;
     [label sizeToFit];
     
@@ -119,7 +119,7 @@ static int nbTotalOfDaysAllowed = 2*100;
     [[AMPopTip appearance] setTextColor:[Colors apphuntWhiteColor]];
     self.welcomePop = [[AMPopTip alloc] initWithFrame:CGRectZero];
     self.welcomePop.popoverColor = [Colors apphuntRedColor];
-    NSString *welcomeText = [NSString stringWithFormat:@"Hey App Hunters!\nWe gather iOS apps posted on Product Hunt.\n Install and test the latest apps in 2 taps!"];
+    NSString *welcomeText = NSLocalizedString(@"welcometext.popup", nil);
     [self.welcomePop showText:welcomeText direction:AMPopTipDirectionDown maxWidth:180 inView:self.view fromFrame:CGRectMake(self.view.frame.size.width/2,15,0,0)];
     [self.view addSubview:self.welcomePop];
     UITapGestureRecognizer *tapToClose = [[UITapGestureRecognizer alloc] initWithTarget:self.welcomePop action:@selector(hide)];
@@ -148,11 +148,11 @@ static int nbTotalOfDaysAllowed = 2*100;
     headerLabel.frame = CGRectMake(20,1,200,24);
     headerLabel.text =  [self convertDateToSectionFormat:[self.datesSectionTitles objectAtIndex:section]];
     if (section == 0) {
-        NSString *today = @"TODAY ";
+        NSString *today = NSLocalizedString(@"today.sectiontitle", nil);
         headerLabel.text = [today stringByAppendingString:[self convertDateToSectionFormat:[self.datesSectionTitles objectAtIndex:0]]];
     }
     else if (section ==1) {
-        NSString *yesterday = @"YESTERDAY ";
+        NSString *yesterday = NSLocalizedString(@"yesterday.sectiontitle", nil);
         headerLabel.text = [yesterday stringByAppendingString:[self convertDateToSectionFormat:[self.datesSectionTitles objectAtIndex:1]]];
     }
     else {
@@ -281,8 +281,8 @@ static int nbTotalOfDaysAllowed = 2*100;
 
     [storeProductViewController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:identifier} completionBlock:^(BOOL result, NSError *error) {
         if(error){
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry!"
-                                                            message:@"We were unable to access the App Store, come back in a bit!"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oooops!"
+                                                            message:NSLocalizedString(@"failedrequest.openappstore", nil)
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];

@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  apphunt
+
+  Created by Solene Maitre on 12/09/14.
+  Copyright (c) 2014 Enquire. All rights reserved.
+*/
+
+
+//ONBOARDING
+"welcometext.popup" = "Hey App Hunters!\nRetrouve chaque jour les applis postées sur Product Hunt et installe les directement depuis cete appli.";
+
+//NAV BAR
+"title.navbar" = "Apps Hunt";
+
+//TABLE VIEWS
+"today.sectiontitle" = "AUJOURD'HUI - ";
+"yesterday.sectiontitle" = "HIER - ";
+
+//ERRORS
+"failedrequest.retry" = "Ooups, retente ta chance en cliquant sur le cercle rouge (et vérifie que tu as du réseau) !";
+"failedrequest.openappstore" = "Nous n'avons pas pu charger cette appli, vérifie ta connection ou reviens dans quelques instants!";
+
+
