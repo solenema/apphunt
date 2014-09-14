@@ -30,7 +30,6 @@ static CGFloat const kMinSleepTimeBeforeForceReload = 3*60; // 3 minutes
     [[BITHockeyManager sharedHockeyManager].authenticator
      authenticateInstallation];
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
-    [[UINavigationBar appearance] setTranslucent:NO];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
