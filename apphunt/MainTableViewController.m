@@ -54,8 +54,11 @@ static int nbTotalOfDaysAllowed = 2*100;
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"bottom-line"]];
     [[UINavigationBar appearance] setTintColor:[Colors apphuntRedColor]];
-    
-    
+#ifdef __IPHONE_8_0
+    if(NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
+    [[UINavigationBar appearance] setTranslucent:NO];
+    }
+#endif
     //Add Loader (Spinner View)
     self.spinnerView = [[LLARingSpinnerView alloc] initWithFrame:CGRectZero];
     self.spinnerView.bounds = CGRectMake(0, 0, 40, 40);
@@ -277,6 +280,9 @@ static int nbTotalOfDaysAllowed = 2*100;
 //        [indicator bringSubviewToFront:self.view];
 //        [UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
 //        [indicator startAnimating];
+    
+    
+
 
 
     [storeProductViewController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:identifier} completionBlock:^(BOOL result, NSError *error) {

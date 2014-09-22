@@ -8,7 +8,7 @@
 
 
 //ONBOARDING
-"welcometext.popup" = "Hey App Hunters!\nRetrouve chaque jour les applis postées sur Product Hunt et installe les directement depuis cete appli.";
+"welcometext.popup" = "Hey App Hunters !\nRetrouve chaque jour les applis postées sur Product Hunt. Tu peux les installer directement depuis cette appli.";
 
 //NAV BAR
 "title.navbar" = "Apps Hunt";

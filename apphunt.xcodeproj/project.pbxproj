@@ -678,8 +678,8 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Solene Maitre (MK8VRTVBQP)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Solene Maitre (MK8VRTVBQP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -690,8 +690,8 @@
 				INFOPLIST_FILE = "apphunt/apphunt-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "46baac99-99af-42f1-83b9-dcf50d1a63b2";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "c1dc5623-0ce1-4917-8cc4-8f6b624553db";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -703,7 +703,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Solene Maitre (MK8VRTVBQP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Solene Maitre (MK8VRTVBQP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -715,8 +715,8 @@
 				INFOPLIST_FILE = "apphunt/apphunt-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "46baac99-99af-42f1-83b9-dcf50d1a63b2";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "c1dc5623-0ce1-4917-8cc4-8f6b624553db";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
