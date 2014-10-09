@@ -12,12 +12,12 @@
 @implementation Colors
 
 
-+ (UIColor *)enquireWhiteColor{
++ (UIColor *)apphuntWhiteColor{
     return [UIColor colorWithHexString:@"ffffff"];
 }
 
-+ (UIColor *)enquireBlueColor{
-    return [UIColor colorWithHexString:@"30aadd"];
++ (UIColor *)apphuntRedColor{
+    return [UIColor colorWithHexString:@"ed4c2a"];
 }
 
 
@@ -28,7 +28,6 @@
 + (UIColor *)apphuntDarkGrayColor{
     return [UIColor colorWithHexString:@"333333"];
 }
-
 
 
 

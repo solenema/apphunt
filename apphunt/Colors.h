@@ -14,9 +14,12 @@
 
 //MAIN COLORS
 
-+ (UIColor *)enquireBlueColor;
-+ (UIColor *)enquireWhiteColor;
++ (UIColor *)apphuntRedColor;
++ (UIColor *)apphuntWhiteColor;
++ (UIColor *)apphuntLightGrayColor;
++ (UIColor *)apphuntDarkGrayColor;
 
+;
 
 
 @end
